@@ -1,0 +1,22 @@
+name: laravel-sass
+recipe: laravel
+config:
+  webroot: public
+services:
+  database:
+    portforward: 1443
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  cli:
+    type: node
+tooling:
+  npm:
+    service: cli
+  npx:
+    service: cli
+  node:
+    service: cli
+  yarn:
+    service: cli
