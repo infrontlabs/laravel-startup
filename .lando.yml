@@ -3,6 +3,9 @@ recipe: laravel
 config:
   webroot: public
 services:
+  appserver:
+    run:
+      - "cd $LANDO_MOUNT && composer install"
   database:
     portforward: 1443
   mailhog:
@@ -20,3 +23,6 @@ tooling:
     service: cli
   yarn:
     service: cli
+  phpunit:
+    service: appserver_cli
+    description: "Run PHP Unit tests: lando phpunit"

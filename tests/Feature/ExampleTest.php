@@ -2,11 +2,14 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Passport\Passport;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -14,8 +17,18 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        Passport::actingAs(
+            factory(User::class)->make([
+                'email' => 'john@test.com',
+            ])
+        );
 
-        $response->assertStatus(200);
+        $response = $this->get('/api/user');
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'email' => 'john@test.com',
+            ]);
     }
 }
