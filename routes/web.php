@@ -11,10 +11,15 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::domain(config('domain.home'))->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');;
 });
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::domain(config('domain.dashboard'))
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/{any}', 'Dashboard\DashboardAppController@index')->where('any', '.*')->name('app');
+    });
