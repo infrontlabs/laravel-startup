@@ -23,6 +23,9 @@
     "react-dom": "^16.2.0"
   },
   "dependencies": {
-    "react-router-dom": "^4.2.2"
+    "react-enhanced-form": "^1.4.5",
+    "react-router-dom": "^4.2.2",
+    "reactstrap": "^6.0.1",
+    "rebass": "^2.0.0-2"
   }
 }

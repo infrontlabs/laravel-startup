@@ -11,15 +11,14 @@
 |
  */
 
-Route::domain(config('domain.home'))->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');;
-});
-Auth::routes();
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
-Route::domain(config('domain.dashboard'))
-    ->middleware('auth')
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::middleware('auth')
     ->group(function () {
-        Route::get('/{any}', 'Dashboard\DashboardAppController@index')->where('any', '.*')->name('app');
+        Route::get('/dashboard/{any?}', 'Dashboard\DashboardAppController@index')->where('any', '.*')->name('app');
     });

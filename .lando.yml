@@ -14,6 +14,9 @@ services:
       - appserver
   cli:
     type: node
+  redis:
+    type: redis
+    portforward: 6380
 proxy:
   appserver:
     - laravelsass.lndo.site
