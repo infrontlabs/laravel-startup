@@ -3,15 +3,8 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import { Button } from 'reactstrap'
 
-const DashboardHome = () => (
-  <div>
-    <div className="card-header">Dashboard Home</div>
-    <div className="card-body">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </div>
-  </div>
-)
+// pages
+import DashboardHome from './pages/dashboard/Profile'
 
 const ChangePassword = () => (
   <div>
