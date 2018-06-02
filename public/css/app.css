@@ -1,4 +1,4 @@
-/*!
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,600);/*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -32,7 +32,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Arial", sans-serif;
+  --font-family-sans-serif: "Montserrat", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -71,7 +71,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6266,7 +6266,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6391,7 +6391,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Arial", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -10447,6 +10447,7 @@ a.text-dark:focus {
   margin-bottom: 0;
   background-color: #fff;
   border-bottom: 0 solid rgba(55, 63, 67, 0.125);
+  font-weight: 600;
 }
 
 .card .card-header {

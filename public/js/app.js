@@ -67357,7 +67357,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_dashboard_Profile__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_dashboard_Home__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_account_Profile__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_ChangePassword__ = __webpack_require__(124);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67374,39 +67376,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // pages
 
 
-var ChangePassword = function ChangePassword() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    null,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'card-header' },
-      'Change Password'
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'card-body' },
-      'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    )
-  );
-};
 
-var AccountProfile = function AccountProfile() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    null,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'card-header' },
-      'Profile'
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'card-body' },
-      'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    )
-  );
-};
 
 var Dashboard = function (_Component) {
   _inherits(Dashboard, _Component);
@@ -67436,7 +67406,7 @@ var Dashboard = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'nav',
             {
-              className: 'navbar navbar-expand-lg navbar-light mb-3 navbar-laravel',
+              className: 'navbar navbar-expand-lg navbar-light navbar-laravel',
               style: { backgroundColor: 'white' }
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -67471,117 +67441,125 @@ var Dashboard = function (_Component) {
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'container' },
+            'main',
+            { className: 'py-4' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { className: 'row' },
+              { className: 'container' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'col-3' },
+                { className: 'row' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'aside',
-                  null,
+                  'div',
+                  { className: 'col-3' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    { className: 'nav-heading' },
-                    'Dashboard'
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'ul',
-                    { className: 'nav flex-column mb-4' },
+                    'aside',
+                    null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
+                      'h3',
+                      { className: 'nav-heading' },
+                      'Dashboard'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'ul',
+                      { className: 'nav flex-column mb-4' },
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        { exact: true, className: 'nav-link', to: '/' },
-                        'Link 1'
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          { exact: true, className: 'nav-link', to: '/' },
+                          'Link 1'
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          { className: 'nav-link', to: '/link2' },
+                          'Link 2'
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          { className: 'nav-link', to: '/link3' },
+                          'Link 3'
+                        )
                       )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        { className: 'nav-link', to: '/link2' },
-                        'Link 2'
-                      )
+                      'h3',
+                      { className: 'nav-heading' },
+                      'Account'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
+                      'ul',
+                      { className: 'nav flex-column mb-4' },
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        { className: 'nav-link', to: '/link3' },
-                        'Link 3'
-                      )
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    { className: 'nav-heading' },
-                    'Account'
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'ul',
-                    { className: 'nav flex-column mb-4' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          {
+                            exact: true,
+                            className: 'nav-link',
+                            to: '/account/profile'
+                          },
+                          'Profile'
+                        )
+                      ),
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        { exact: true, className: 'nav-link', to: '/account/profile' },
-                        'Profile'
-                      )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          {
+                            className: 'nav-link',
+                            to: '/account/change-password'
+                          },
+                          'Change Password'
+                        )
+                      ),
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        {
-                          className: 'nav-link',
-                          to: '/account/change-password'
-                        },
-                        'Change Password'
-                      )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'li',
-                      { className: 'nav-item' },
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
-                        { className: 'nav-link', to: '/account/billing' },
-                        'Billing'
+                        'li',
+                        { className: 'nav-item' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* NavLink */],
+                          { className: 'nav-link', to: '/account/billing' },
+                          'Billing'
+                        )
                       )
                     )
                   )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'col-9' },
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
-                  { className: 'card border-0' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
-                    exact: true,
-                    path: '/',
-                    render: function render() {
-                      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__pages_dashboard_Profile__["a" /* default */], { laravel: _this2.props.laravel });
-                    }
-                  }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
-                    exact: true,
-                    path: '/account/profile',
-                    component: AccountProfile
-                  }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
-                    exact: true,
-                    path: '/account/change-password',
-                    component: ChangePassword
-                  })
+                  { className: 'col-9' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'card border-0' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
+                      exact: true,
+                      path: '/',
+                      render: function render() {
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__pages_dashboard_Home__["a" /* default */], { laravel: _this2.props.laravel });
+                      }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
+                      exact: true,
+                      path: '/account/profile',
+                      component: __WEBPACK_IMPORTED_MODULE_5__pages_account_Profile__["a" /* default */]
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
+                      exact: true,
+                      path: '/account/change-password',
+                      component: __WEBPACK_IMPORTED_MODULE_6__pages_account_ChangePassword__["a" /* default */]
+                    })
+                  )
                 )
               )
             )
@@ -67602,7 +67580,8 @@ if (document.getElementById('app')) {
 }
 
 /***/ }),
-/* 121 */
+/* 121 */,
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67628,6 +67607,62 @@ var DashboardHome = function DashboardHome() {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (DashboardHome);
+
+/***/ }),
+/* 123 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var Profile = function Profile() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    "div",
+    null,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "card-header" },
+      "Profile"
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "card-body" },
+      "Some quick example text to build on the card title and make up the bulk of the card's content."
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Profile);
+
+/***/ }),
+/* 124 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var ChangePassword = function ChangePassword() {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    "div",
+    null,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "card-header" },
+      "ChangePassword"
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "card-body" },
+      "Some quick example text to build on the card title and make up the bulk of the card's content."
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (ChangePassword);
 
 /***/ })
 /******/ ]);

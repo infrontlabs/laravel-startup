@@ -82,7 +82,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Laravel
+                LaravelSaaS
             </div>
 
             <div class="links">
