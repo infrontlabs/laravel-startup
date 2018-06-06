@@ -18,8 +18,6 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
 
-        dd(env('DB_CONNECTION'), env('DB_DATABASE'));
-
         Passport::actingAs(
             factory(User::class)->make([
                 'email' => 'john@test.com',

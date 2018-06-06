@@ -22,3 +22,5 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard/{any?}', 'Dashboard\DashboardAppController@index')->where('any', '.*')->name('app');
     });
+
+Route::get('activate/{confirmation_token}', 'Account\ActivationController')->name('account.activation');

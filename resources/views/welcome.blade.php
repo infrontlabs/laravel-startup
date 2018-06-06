@@ -8,8 +8,6 @@
 
     <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <style>
@@ -81,6 +79,11 @@
         @endif
 
         <div class="content">
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
             <div class="title m-b-md">
                 LaravelSaaS
             </div>

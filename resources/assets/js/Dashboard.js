@@ -90,6 +90,12 @@ export default class Dashboard extends Component {
                           Billing
                         </NavLink>
                       </li>
+
+                      <li className="nav-item">
+                        <a className="nav-link" href="/logout">
+                          Logout
+                        </a>
+                      </li>
                     </ul>
                   </aside>
                 </div>
