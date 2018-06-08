@@ -14,15 +14,6 @@ class User extends Authenticatable
     protected $guarded = [];
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -30,4 +21,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function orgs()
+    {
+        return $this->belongsToMany(Org::class);
+    }
 }

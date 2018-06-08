@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
-import { Button } from 'reactstrap'
 
-// pages
-import DashboardHome from './pages/dashboard/Home'
-import AccountProfile from './pages/account/Profile'
-import ChangePassword from './pages/account/ChangePassword'
+import AccountNav from './account/components/AccountNav'
+import routes from './routes'
 
 export default class Dashboard extends Component {
   logout() {
-    window.axios.post(this.props.laravel.routes.logout)
+    window.axios.post(this.props.session.routes.logout)
   }
 
   render() {
@@ -22,8 +19,9 @@ export default class Dashboard extends Component {
             style={{ backgroundColor: 'white' }}
           >
             <div className="container">
-              <a className="navbar-brand" href={this.props.laravel.routes.home}>
-                LaravelSaas
+              <a className="navbar-brand" href={this.props.session.routes.home}>
+                <strong>Laravel</strong>
+                <span>Saas</span>
               </a>
 
               <div
@@ -35,7 +33,7 @@ export default class Dashboard extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item dropdown">
                     <a id="navbarDropdown" className="nav-link" href="#">
-                      {this.props.laravel.user.name}
+                      {this.props.session.user.name}
                     </a>
                   </li>
                 </ul>
@@ -66,59 +64,20 @@ export default class Dashboard extends Component {
                       </li>
                     </ul>
 
-                    <h3 className="nav-heading">Account</h3>
-                    <ul className="nav flex-column mb-4">
-                      <li className="nav-item">
-                        <NavLink
-                          exact
-                          className="nav-link"
-                          to="/account/profile"
-                        >
-                          Profile
-                        </NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink
-                          className="nav-link"
-                          to="/account/change-password"
-                        >
-                          Change Password
-                        </NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink className="nav-link" to="/account/billing">
-                          Billing
-                        </NavLink>
-                      </li>
-
-                      <li className="nav-item">
-                        <a className="nav-link" href="/logout">
-                          Logout
-                        </a>
-                      </li>
-                    </ul>
+                    <AccountNav />
                   </aside>
                 </div>
                 <div className="col-9">
-                  <div className="card border-0">
-                    <Route
-                      exact
-                      path="/"
-                      render={() => (
-                        <DashboardHome laravel={this.props.laravel} />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/account/profile"
-                      component={AccountProfile}
-                    />
-                    <Route
-                      exact
-                      path="/account/change-password"
-                      component={ChangePassword}
-                    />
-                  </div>
+                  {routes.map(({ exact, path, component: C }) => {
+                    return (
+                      <Route
+                        key={path}
+                        exact={exact}
+                        path={path}
+                        render={() => <C session={this.props.session} />}
+                      />
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -131,7 +90,7 @@ export default class Dashboard extends Component {
 
 if (document.getElementById('app')) {
   ReactDOM.render(
-    <Dashboard laravel={window.Laravel} />,
+    <Dashboard session={window.Laravel} />,
     document.getElementById('app')
   )
 }
