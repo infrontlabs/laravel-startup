@@ -77,8 +77,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->orgs()->save(factory(Org::class)->create());
-        $user->orgs()->save(factory(Org::class)->create());
+        $user->orgs()->save(Org::create([
+            'name' => $data['org_name'],
+        ]));
 
         return $user;
     }

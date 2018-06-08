@@ -11,4 +11,11 @@ class DashboardAppController extends Controller
     {
         return view('app');
     }
+
+    public function orgs()
+    {
+        $orgs = auth()->user()->orgs;
+
+        return view('dashboard.orgs', compact('orgs'));
+    }
 }

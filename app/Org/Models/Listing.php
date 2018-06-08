@@ -2,10 +2,9 @@
 
 namespace App\Org\Models;
 
-use App\Org\Traits\ForOrgs;
 use Illuminate\Database\Eloquent\Model;
 
-class Document extends Model
+class Listing extends Model
 {
-    use ForOrgs;
+    //
 }

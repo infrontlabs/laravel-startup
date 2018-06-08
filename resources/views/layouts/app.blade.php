@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <strong>Laravel</strong><span>SaaS</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->first_name }}
                                 <span class="caret"></span>
                             </a>
 
@@ -73,6 +73,19 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+
+        window.Laravel = {
+            user: {!! auth()->user()->with('orgs')->first() !!},
+            routes: {
+                home: '{!! route('home') !!}',
+                logout: '{!! route('logout') !!}',
+            }
+        };
+
+    </script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 
 </html>

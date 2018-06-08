@@ -26,4 +26,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Org::class);
     }
+
+    public function isMemberOf(Org $org)
+    {
+        return $this->orgs->contains('id', $org->id);
+    }
 }
