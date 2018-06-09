@@ -2,11 +2,11 @@
 
 namespace App;
 
-use App\Org\Models\Document;
+use App\Account\Models\Document;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Cashier\Billable;
 
-class Org extends Model
+class Account extends Model
 {
     use Billable;
 

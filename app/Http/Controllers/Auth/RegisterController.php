@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Account;
 use App\Events\Auth\UserSignedUp;
 use App\Http\Controllers\Controller;
-use App\Org;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -55,7 +55,6 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'org_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -77,8 +76,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->orgs()->save(Org::create([
-            'name' => $data['org_name'],
+        $user->accounts()->save(Account::create([
+            'name' => $data['last_name'] . $data['first_name'],
         ]));
 
         return $user;

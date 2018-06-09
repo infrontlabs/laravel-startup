@@ -70,21 +70,70 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
-        </main>
+            <div class="container">
+              <div class="row">
+                <div class="col-3">
+                  <aside>
+                    <ul class="nav flex-column mb-4">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('app.dashboard') }}">
+                          Home
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/link2">
+                          Link 2
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/link3">
+                          Link 3
+                        </a>
+                      </li>
+                    </ul>
+                  </aside>
+
+
+                    <aside>
+                    <h3 class="nav-heading">Account</h3>
+                    <ul class="nav flex-column mb-4">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('app.account.settings') }}">
+                          Settings
+                        </a>
+                        <a class="nav-link" href="{{ route('app.account.profile') }}">
+                          Profile
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('app.account.billing') }}">
+                          Billing
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('app.account.subscription') }}">
+                          Subscription
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('app.account.invite') }}">
+                          Invite
+                        </a>
+                      </li>
+                    </ul>
+
+
+                  </aside>
+
+                </div>
+                <div class="col-9">
+                  @yield('content')
+                </div>
+              </div>
+            </div>
+          </main>
     </div>
 
-    <script>
-
-        window.Laravel = {
-            user: {!! auth()->user()->with('orgs')->first() !!},
-            routes: {
-                home: '{!! route('home') !!}',
-                logout: '{!! route('logout') !!}',
-            }
-        };
-
-    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 

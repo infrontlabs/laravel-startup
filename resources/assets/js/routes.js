@@ -3,7 +3,7 @@ import React from 'react'
 import DashboardHome from './pages/dashboard/Home'
 import AccountProfile from './pages/account/Profile'
 import ChangePassword from './pages/account/ChangePassword'
-import Organizations from './pages/account/Organizations'
+import Accounts from './pages/account/Accounts'
 
 const routes = [
   {
@@ -23,8 +23,8 @@ const routes = [
   },
   {
     exact: null,
-    path: '/account/orgs',
-    component: Organizations
+    path: '/account/accounts',
+    component: Accounts
   }
 ]
 

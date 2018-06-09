@@ -22,13 +22,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function orgs()
+    public function accounts()
     {
-        return $this->belongsToMany(Org::class);
+        return $this->belongsToMany(Account::class);
     }
 
-    public function isMemberOf(Org $org)
+    public function isMemberOf(Account $account)
     {
-        return $this->orgs->contains('id', $org->id);
+        return $this->accounts->contains('id', $account->id);
     }
 }

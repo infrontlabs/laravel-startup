@@ -23,7 +23,7 @@
     <script>
 
         window.Laravel = {
-            user: {!! auth()->user()->with('orgs')->first() !!},
+            user: {!! auth()->user()->with('accounts')->first() !!},
             routes: {
                 home: '{!! route('home') !!}',
                 logout: '{!! route('logout') !!}',

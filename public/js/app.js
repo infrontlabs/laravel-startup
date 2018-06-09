@@ -60801,15 +60801,6 @@ var AccountNav = function AccountNav() {
         { className: 'nav-item' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
-          { exact: true, className: 'nav-link', to: '/account/orgs' },
-          'Organizations'
-        )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'li',
-        { className: 'nav-item' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* NavLink */],
           { className: 'nav-link', to: '/account/change-password' },
           'Change Password'
         )
@@ -60848,7 +60839,7 @@ var AccountNav = function AccountNav() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_dashboard_Home__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_account_Profile__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_account_ChangePassword__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_account_Organizations__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_account_Accounts__ = __webpack_require__(111);
 
 
 
@@ -60870,8 +60861,8 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_3__pages_account_ChangePassword__["a" /* default */]
 }, {
   exact: null,
-  path: '/account/orgs',
-  component: __WEBPACK_IMPORTED_MODULE_4__pages_account_Organizations__["a" /* default */]
+  path: '/account/accounts',
+  component: __WEBPACK_IMPORTED_MODULE_4__pages_account_Accounts__["a" /* default */]
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -61019,24 +61010,24 @@ var ChangePassword = function ChangePassword() {
 
 
 
-var Organizations = function Organizations(props) {
+var Accounts = function Accounts(props) {
   var session = props.session;
 
 
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     __WEBPACK_IMPORTED_MODULE_1__components_Card__["a" /* default */],
-    { title: 'Organizations' },
-    session.user.orgs.map(function (org) {
+    { title: 'Accounts' },
+    session.user.accounts.map(function (account) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'p',
-        { key: org.name },
-        org.name
+        { key: account.name },
+        account.name
       );
     })
   );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Organizations);
+/* harmony default export */ __webpack_exports__["a"] = (Accounts);
 
 /***/ }),
 /* 112 */

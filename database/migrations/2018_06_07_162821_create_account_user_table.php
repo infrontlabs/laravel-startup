@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrgUserTable extends Migration
+class CreateAccountUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateOrgUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('org_user', function (Blueprint $table) {
+        Schema::create('account_user', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('org_id')->unsigned()->index();
+            $table->integer('account_id')->unsigned()->index();
 
             $table->timestamps();
         });

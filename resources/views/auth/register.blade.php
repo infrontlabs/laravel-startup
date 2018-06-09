@@ -40,20 +40,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="org_name" class="col-md-4 col-form-label text-md-right">{{ __('Organization') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="org_name" type="text" autocomplete="organization" class="form-control{{ $errors->has('org_name') ? ' is-invalid' : '' }}" name="org_name" value="{{ old('org_name') }}" required autofocus>
-
-                                @if ($errors->has('org_name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('org_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

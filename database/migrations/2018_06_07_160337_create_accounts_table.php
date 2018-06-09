@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModelsDocumentsTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateModelsDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('org_id')->unsigned()->index();
             $table->string('name');
-            $table->text('body');
+
+            // Stripe
+            $table->string('stripe_id')->nullable();
+            $table->string('card_brand')->nullable();
+            $table->string('card_last_four')->nullable();
+            $table->timestamp('trial_ends_at')->nullable();
 
             $table->timestamps();
         });
@@ -30,6 +34,6 @@ class CreateModelsDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models_documents');
+        Schema::dropIfExists('orgs');
     }
 }
