@@ -37,6 +37,12 @@ class AccountMiddleware
 
     public function resolveAccount($id)
     {
-        return Account::find($id);
+        $account = Account::find($id);
+
+        if (!$account && auth()->user()) {
+            $account = auth()->user()->accounts()->first();
+        }
+
+        return $account;
     }
 }

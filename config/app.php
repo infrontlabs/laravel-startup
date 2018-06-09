@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Cashier\CashierServiceProvider::class,
+        \App\Providers\BladeServiceProvider::class,
 
     ],
 

@@ -4,15 +4,15 @@
 
 @component('components.card')
         @slot('title')
-            Accounts ({{$account->name}})
+            Accounts
         @endslot
 
         @foreach($accounts as $a)
 
-            @if($a->name == $account->name)
+            @if($a->name == optional($account)->name)
                 {{$a->name}}
             @else
-                <a href="{{ route('account', $a) }}">{{$a->name}}</a>
+                <p><a href="{{ route('account', $a) }}">{{$a->name}}</a></p>
             @endif
         @endforeach
     @endcomponent

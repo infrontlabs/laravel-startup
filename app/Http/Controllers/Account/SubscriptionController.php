@@ -9,14 +9,14 @@ class SubscriptionController extends Controller
 {
     public function index()
     {
-        return view('app.account.subscription');
+        $plans = collect(config('subscription.plans'))->where('active', true);
+
+        return view('app.account.subscription', compact('plans'));
     }
 
     public function process(Request $request)
     {
-        $request->account()->newSubscription('main', 'basic')->create($request->get('stripe_token'), [
-            'email' => auth()->user()->email,
-        ]);
+        $request->account()->createSubscription('basic', $request->get('stripe_token'));
 
         return back();
     }

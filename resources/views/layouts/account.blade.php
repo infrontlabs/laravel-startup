@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-3">
 
-            @include('partials.nav._app')
+            @include('partials.nav._account')
 
             </div>
             <div class="col-9">

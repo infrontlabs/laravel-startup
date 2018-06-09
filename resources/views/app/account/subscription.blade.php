@@ -1,23 +1,50 @@
-@extends('layouts.app') @section('content') @component('components.card') @slot('title') Subscription @endslot
+@extends('layouts.account')
 
-<form action="{{ route('app.account.subscription') }}" method="post" id="payment-form">
-    <input type="hidden" name="stripe_token" id="stripe_token" />
-    {{ csrf_field() }}
-    <div id="card-element">
+@section('content')
 
-    </div>
-    <button class="btn btn-primary">Subscribe</button>
+    @component('components.card')
+        @slot('title')
+            Subscription
+        @endslot
 
-    <div id="card-errors" role="alert"></div>
+        <form action="{{ route('app.account.subscription') }}" method="post" id="payment-form">
+            <input type="hidden" name="stripe_token" id="stripe_token" />
+            {{ csrf_field() }}
 
-</form>
+            <div class="form-group">
+                <ul class="list-group">
+                    @foreach($plans as $plan)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="plan" id="plan_{{$plan['stripe_id']}}" value="{{$plan['stripe_id']}}">
+                                <label class="form-check-label" for="plan_{{$plan['stripe_id']}}">&nbsp;{{$plan['name']}}</label>
+                            </div>
+                            <span>{{$plan['price']}} {{$plan['interval']}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
-@endcomponent
+            <hr>
+            <div id="card-element" class="form-group"></div>
+            <hr>
+
+            <button class="btn btn-secondary">Subscribe</button>
+
+            <div id="card-errors" role="alert"></div>
+
+        </form>
+
+    @endcomponent
+
+@endsection
+
+@section('scripts')
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
     // Create a Stripe client.
-    var stripe = Stripe('pk_test_6yMQESa4zH5f36L4ZCvAtbyg');
+    var stripe = Stripe("{{config('services.stripe.key')}}");
 
     // Create an instance of Elements.
     var elements = stripe.elements();
@@ -75,4 +102,6 @@
             }
         });
     });
-</script> @endsection
+</script>
+
+@endsection
