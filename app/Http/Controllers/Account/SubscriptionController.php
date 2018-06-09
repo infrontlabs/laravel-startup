@@ -11,7 +11,7 @@ class SubscriptionController extends Controller
     {
         $plans = collect(config('subscription.plans'))->where('active', true);
 
-        return view('app.account.subscription', compact('plans'));
+        return view('account.subscription', compact('plans'));
     }
 
     public function process(Request $request)

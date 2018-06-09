@@ -8,6 +8,6 @@ class InviteController extends Controller
 {
     public function index()
     {
-        return view('app.account.invite');
+        return view('account.invite');
     }
 }

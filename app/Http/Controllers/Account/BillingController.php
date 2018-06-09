@@ -8,6 +8,6 @@ class BillingController extends Controller
 {
     public function index()
     {
-        return view('app.account.billing');
+        return view('account.billing');
     }
 }
