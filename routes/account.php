@@ -10,6 +10,9 @@ Route::post('/account/settings', 'Account\SettingsController@store');
 Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
 Route::get('/account/invite', 'Account\InviteController@index')->name('account.invite');
 
+Route::get('/account/password', 'Account\PasswordController@index')->name('account.password');
+Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');
+
 /** Account Subscription Routes */
 Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
 // Route::post('/account/subscription', 'Account\SubscriptionController@process')->name('account.subscription');

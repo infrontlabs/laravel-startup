@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Auth\UserSignedUp' => [
             'App\Listeners\Auth\SendActivationEmail',
         ],
+        'App\Events\Auth\UserChangedEmail' => [
+            'App\Listeners\Auth\SendActivationEmail',
+        ],
     ];
 
     /**

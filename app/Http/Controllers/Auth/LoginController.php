@@ -52,18 +52,4 @@ class LoginController extends Controller
         return route('app.dashboard');
     }
 
-    /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        if (!$user->activated) {
-            $this->guard()->logout();
-            return redirect('/')->withError('Check your email for an activation email.');
-        }
-    }
 }

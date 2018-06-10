@@ -10,11 +10,11 @@ class ActivationController extends Controller
 {
     public function __invoke(Request $request, $token)
     {
-        $token->user->activateAccount();
+        $token->user->validateAccount();
 
         Auth::loginUsingId($token->user->id);
 
-        return redirect()->intended('/dashboard')->withSuccess('You are now signed in.');
+        return redirect()->intended('/account')->withSuccess('You are now signed in.');
 
     }
 }

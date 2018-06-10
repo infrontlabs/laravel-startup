@@ -85,8 +85,6 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        $this->guard()->logout();
-
         // send email
         event(new UserSignedUp($user));
 

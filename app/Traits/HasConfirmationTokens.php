@@ -25,9 +25,9 @@ trait HasConfirmationTokens
         return $this->hasOne(ConfirmationToken::class);
     }
 
-    public function activateAccount()
+    public function validateAccount()
     {
-        $this->activated = true;
+        $this->validated = true;
         $this->save();
 
         $this->confirmationToken()->delete();

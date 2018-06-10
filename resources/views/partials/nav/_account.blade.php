@@ -27,7 +27,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/change-password') }}" href="{{ route('account.profile') }}">
+        <a class="nav-link {{ link_is_active('account/change-password') }}" href="{{ route('account.password') }}">
             Change Password
         </a>
         </li>
