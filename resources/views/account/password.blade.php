@@ -2,13 +2,6 @@
 
 @section('content')
 
-
-    @if(session('success'))
-        <div class="alert alert-success" role="alert">
-            {{session('success')}}
-        </div>
-    @endif
-
     @component('components.card')
         @slot('title')
             Change password

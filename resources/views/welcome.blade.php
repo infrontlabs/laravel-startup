@@ -85,7 +85,7 @@
             </div>
         @endif
             <div class="title m-b-md">
-                LaravelSaaS
+            <span style="color:#ea7d3c;">Laravel</span><span style="color:#3E6BB5;">SaaS</span>
             </div>
 
             <div class="links">

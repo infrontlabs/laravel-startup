@@ -24,6 +24,7 @@ class PasswordChangeRequest extends FormRequest
     public function rules()
     {
         return [
+            'password_current' => ['required', new \App\Rules\CurrentPassword],
             'password' => 'required|string|min:6|confirmed',
         ];
     }

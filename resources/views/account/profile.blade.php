@@ -2,17 +2,6 @@
 
 @section('content')
 
-
-    @if(session('success'))
-        <div class="alert alert-success" role="alert">
-            {{session('success')}}
-
-            @if (session('emailChanged'))
-               <div><strong>{{session('emailChanged')}}</strong></div>
-            @endif
-        </div>
-    @endif
-
     @component('components.card')
         @slot('title')
             Profile

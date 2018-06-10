@@ -1,8 +1,8 @@
 @component('mail::message')
-Please activate your account
+Please confirm your account email address
 
-@component('mail::button', ['url' => route('auth.activation', $token)])
-Activate
+@component('mail::button', ['url' => route('auth.email.confirmation', $token)])
+Confirm
 @endcomponent
 
 Thanks,<br>
