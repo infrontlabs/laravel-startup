@@ -11,6 +11,7 @@ Route::get('/account/settings', 'Account\SettingsController@index')->name('accou
 Route::post('/account/settings', 'Account\SettingsController@store');
 Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
 Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
+Route::post('/account/team', 'Account\TeamController@invite')->name('account.team.invite');
 
 Route::get('/account/accounts', 'Account\ManageAccountsController@index')->name('account.accounts');
 Route::post('/account/accounts', 'Account\ManageAccountsController@store')->name('account.accounts.store');
@@ -19,6 +20,9 @@ Route::get('/account/password', 'Account\PasswordController@index')->name('accou
 Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');
 
 Route::get('/account/email/resend', 'Auth\EmailConfirmationController@resend')->name('account.email.resend');
+
+Route::get('/account/user/invites', 'Account\UserInvitesController@index')->name('account.user.invites');
+Route::get('/account/user/invites/accept/{teamInvite}', 'Account\UserInvitesController@accept')->name('account.user.invites.accept');
 
 /** Account Subscription Routes */
 

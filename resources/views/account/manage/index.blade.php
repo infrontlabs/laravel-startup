@@ -6,7 +6,7 @@
             Switch Accounts
         @endslot
 
-        <p>Multiple accounts allows you to manage unique teams and subscriptions.</p>
+        <p>Multiple accounts allow you to manage unique teams and billing plans.</p>
 
         <form action="{{ route('account.accounts') }}" method="post">
                 {{ csrf_field() }}
@@ -22,7 +22,7 @@
                                 @if($account->id === $a->id)
                                     <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
                                 @else
-                                    <a href="{{ route('account.switch', $a) }}" class="btn btn-primary">Choose</a>
+                                    <a href="{{ route('account.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
                                 @endif
                             </li>
                         @endforeach

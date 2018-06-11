@@ -13,6 +13,11 @@
             Change Password
         </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ link_is_active('account/user/invites') }}" href="{{ route('account.user.invites') }}">
+                Invites
+            </a>
+        </li>
     </ul>
 
     <h3 class="nav-heading">Account</h3>

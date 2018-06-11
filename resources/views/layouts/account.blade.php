@@ -12,17 +12,17 @@
 
                 @if(session('success'))
                 <div class="alert alert-success" role="alert">
-                    {{session('success')}}
+                    {!! session('success') !!}
 
                     @if (session('emailChanged'))
-                        <div><strong>{{session('emailChanged')}}</strong></div>
+                        <div><strong>{!! session('emailChanged') !!}</strong></div>
                     @endif
                 </div>
                 @endif
 
                 @if(session('error'))
                 <div class="alert alert-danger" role="alert">
-                    {{session('error')}}
+                    {!! session('error') !!}
                 </div>
                 @endif
 

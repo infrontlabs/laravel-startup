@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Auth\UserChangedEmail' => [
             'App\Listeners\Auth\SendActivationEmail',
         ],
+        'App\Events\Account\TeamInviteCreated' => [
+            'App\Listeners\Account\SendTeamInviteEmail',
+        ],
     ];
 
     /**

@@ -1,10 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <strong>Laravel</strong><span>SaaS</span>
+                <strong>InFront</strong><span>SaaS</span>
 
             </a>
-            <span class="badge badge-pill badge-primary">{{ $account->name }}</span>
+            @if($account)
+                <span class="badge badge-pill badge-primary">{{ $account->name }}</span>
+            @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +29,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                            @if (!Auth::user()->validated)
+                            @if (!auth::user()->validated)
                                 <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
                             @endif
                             {{ Auth::user()->first_name }}
@@ -39,7 +41,7 @@
                                 {{ __('Dashboard') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('account.profile') }}">
-                                {{ __('Profile') }}
+                                {{ __('Account') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

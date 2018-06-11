@@ -36,21 +36,61 @@
         @endemailnotconfirmed
 
         @emailconfirmed
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" name="invite_email" id="invite_email" placeholder="Email address">
+
+
+        @if($account->invites->count())
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Invitation Sent</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($account->invites as $invite)
+                <tr>
+                    <td>{{ $invite->email }}</td>
+                    <td>{{ role($invite->role) }}</td>
+                    <td>{{ $invite->created_at->diffForHumans() }}</td>
+                    <td><a href="#">Resend</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+
+            <p>No invites</p>
+
+        @endif
+
+
+        <form action="{{ route('account.team.invite') }}" method="post">
+            {{ csrf_field() }}
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email address" value="{{ old('email') }}">
+                    <div class="text-danger">
+                        {{ $errors->first('email') }}
+                    </div>
+                </div>
+                <div class="col">
+                    <select name="role" id="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}">
+                        <option value="">Select a role</option>
+                        <option value="admin">Administrator</option>
+                        <option value="dev">Developer</option>
+                    </select>
+                    <div class="text-danger">
+                        {{ $errors->first('role') }}
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Send Invite</button>
+                </div>
             </div>
-            <div class="col">
-                <select name="role" id="role" class="form-control">
-                    <option>Select a role</option>
-                    <option value="admin">Administrator</option>
-                    <option value="dev">Developer</option>
-                </select>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Send Invite</button>
-            </div>
-        </div>
+        </form>
         @endemailconfirmed
 
     @endcomponent

@@ -22,6 +22,8 @@ class AccountMiddleware
         );
 
         if (!$account || !auth()->user()->isMemberOf($account)) {
+            $this->registerAccount(auth()->user()->accounts()->first());
+
             return redirect()->route('account.accounts')->withError('There was a problem switching accounts. Please try again.');
         }
 
