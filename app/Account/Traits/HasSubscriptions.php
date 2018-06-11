@@ -35,4 +35,9 @@ trait HasSubscriptions
             config('subscription.name'), $plan
         )->create($stripeToken);
     }
+
+    public function currentPlan()
+    {
+        return $this->subscription('main')->stripe_plan;
+    }
 }

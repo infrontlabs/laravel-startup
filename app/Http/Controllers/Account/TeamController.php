@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 
-class InviteController extends Controller
+class TeamController extends Controller
 {
     public function index()
     {

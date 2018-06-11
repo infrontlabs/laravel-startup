@@ -2,13 +2,16 @@
 
 /** Backend Account Routes */
 
+Route::get('/accounts/{account}', 'Account\AccountRedirectController')->name('account.switch');
+
 Route::get('/account', 'Account\ProfileController@index')->name('account.profile');
 Route::post('/account', 'Account\ProfileController@store')->name('account.profile.store');
 
 Route::get('/account/settings', 'Account\SettingsController@index')->name('account.settings');
 Route::post('/account/settings', 'Account\SettingsController@store');
 Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
-Route::get('/account/invite', 'Account\InviteController@index')->name('account.invite');
+Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
+Route::get('/account/accounts', 'Account\ManageAccountsController@index')->name('account.accounts');
 
 Route::get('/account/password', 'Account\PasswordController@index')->name('account.password');
 Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');
@@ -29,10 +32,12 @@ Route::group(['middleware' => 'subscription.cancelled'], function () {
 
 Route::group(['middleware' => 'subscription.notcancelled'], function () {
     Route::get('/account/subscription/swap', 'Account\SubscriptionSwapController@index')->name('account.subscription.swap');
+    Route::post('/account/subscription/swap', 'Account\SubscriptionSwapController@store')->name('account.subscription.swap.store');
 });
 
 Route::group(['middleware' => 'subscription.customer'], function () {
     Route::get('/account/subscription/card', 'Account\SubscriptionCardController@index')->name('account.subscription.card');
+    Route::post('/account/subscription/card', 'Account\SubscriptionCardController@store')->name('account.subscription.card.store');
 });
 
 Route::group(['middleware' => 'subscription.active'], function () {

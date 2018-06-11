@@ -23,19 +23,19 @@
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/billing') }}" href="{{ route('account.billing') }}">
-            Billing
+        <a class="nav-link {{ link_is_active('account/team') }}" href="{{ route('account.team') }}">
+            Manage Team
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/invite') }}" href="{{ route('account.invite') }}">
-            Invite
+        <a class="nav-link {{ link_is_active('account/accounts') }}" href="{{ route('account.accounts') }}">
+            Switch accounts
         </a>
         </li>
     </ul>
 
     @subscribed
-        <h3 class="nav-heading">Subscription</h3>
+        <h3 class="nav-heading">Plans and Billing</h3>
         <ul class="nav flex-column nav-pills mb-4">
 
             @subscriptionnotcancelled

@@ -11,7 +11,7 @@ return [
             'active' => true,
         ],
         [
-            'stripe_id' => 'basic_yearly',
+            'stripe_id' => 'yearly_100',
             'name' => 'Basic (Annual)',
             'price' => '$100.00',
             'interval' => 'Yearly',
