@@ -24,11 +24,16 @@ class User extends Authenticatable
 
     public function accounts()
     {
-        return $this->belongsToMany(Account::class);
+        return $this->belongsToMany(Account::class)->withPivot('role');
     }
 
     public function isMemberOf(Account $account)
     {
         return $this->accounts->contains('id', $account->id);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . " " . $this->last_name;
     }
 }

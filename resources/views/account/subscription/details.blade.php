@@ -6,7 +6,7 @@
             Subscription Details
         @endslot
 
-        <table class="table table-borderless">
+        <table class="table table-borderless mb-0">
         <tbody>
             <tr>
                 <th scope="row">Plan</th>

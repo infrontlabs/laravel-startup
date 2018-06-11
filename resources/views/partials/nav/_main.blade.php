@@ -2,7 +2,9 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <strong>Laravel</strong><span>SaaS</span>
+
             </a>
+            <span class="badge badge-pill badge-primary">{{ $account->name }}</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,6 +35,9 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('app.dashboard') }}">
+                                {{ __('Dashboard') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('account.profile') }}">
                                 {{ __('Profile') }}
                             </a>

@@ -34,8 +34,8 @@
         </li>
     </ul>
 
+    <h3 class="nav-heading">Plans and Billing</h3>
     @subscribed
-        <h3 class="nav-heading">Plans and Billing</h3>
         <ul class="nav flex-column nav-pills mb-4">
 
             @subscriptionnotcancelled
@@ -49,13 +49,13 @@
                     Cancel subscription
                 </a>
             </li>
-            @endsubscriptionnotcancelled
-
             <li class="nav-item">
                 <a class="nav-link {{ link_is_active('account/subscription/swap') }}" href="{{ route('account.subscription.swap') }}">
                     Change plan
                 </a>
             </li>
+            @endsubscriptionnotcancelled
+
 
             @subscriptioncancelled
             <li class="nav-item">
@@ -73,15 +73,23 @@
     @endsubscribed
 
     @notsubscribed
-        You're not currently subscribed.
-        <a href="{{ route('account.subscribe') }}">Get Started!</a>
+        <ul class="nav flex-column nav-pills mb-4">
+            <li class="nav-item text-danger">You are not currently subscribed.</li>
+            <li class="nav-item">
+                <a class="nav-link {{ link_is_active('account/subscribe') }}" style="text-decoration: underline;" href="{{ route('account.subscribe') }}">
+                    Choose a plan!
+                </a>
+            </li>
+
+        </ul>
     @endnotsubscribed
 
 
-    @if (!Auth::user()->validated)
-        <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
-        Email unconfirmed. <a href="{{ route('account.email.resend') }}">Resend</a>
-    @endif
+    @emailnotconfirmed
+        <hr>
+        <p><i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
+        Email unconfirmed. <a href="{{ route('account.email.resend') }}">Resend</a></p>
+    @endemailnotconfirmed
 
 
 </aside>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountUserTable extends Migration
+class CreateTeamInvitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAccountUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_user', function (Blueprint $table) {
+        Schema::create('team_invites', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('account_id')->unsigned()->index();
-
-            $table->string('role')->default('owner');
+            $table->string('email');
+            $table->string('role');
+            $table->unsignedInteger('account_id');
 
             $table->timestamps();
         });
@@ -32,6 +31,6 @@ class CreateAccountUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('org_user');
+        Schema::dropIfExists('team_invites');
     }
 }

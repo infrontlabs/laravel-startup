@@ -22,7 +22,7 @@ class AccountMiddleware
         );
 
         if (!$account || !auth()->user()->isMemberOf($account)) {
-            return redirect()->route('app.accounts');
+            return redirect()->route('account.accounts')->withError('There was a problem switching accounts. Please try again.');
         }
 
         $this->registerAccount($account);

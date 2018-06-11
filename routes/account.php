@@ -11,7 +11,9 @@ Route::get('/account/settings', 'Account\SettingsController@index')->name('accou
 Route::post('/account/settings', 'Account\SettingsController@store');
 Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
 Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
+
 Route::get('/account/accounts', 'Account\ManageAccountsController@index')->name('account.accounts');
+Route::post('/account/accounts', 'Account\ManageAccountsController@store')->name('account.accounts.store');
 
 Route::get('/account/password', 'Account\PasswordController@index')->name('account.password');
 Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');
@@ -42,7 +44,6 @@ Route::group(['middleware' => 'subscription.customer'], function () {
 
 Route::group(['middleware' => 'subscription.active'], function () {
     Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
-    Route::get('/app', 'Account\DashboardController@index')->name('app.dashboard');
 });
 
 Route::group(['middleware' => 'subscription.inactive'], function () {

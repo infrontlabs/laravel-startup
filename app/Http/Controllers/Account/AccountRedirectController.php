@@ -9,7 +9,7 @@ class AccountRedirectController extends Controller
 {
     public function __invoke()
     {
-        return redirect()->route('account.profile');
+        return redirect()->route('account.accounts');
     }
 
 }

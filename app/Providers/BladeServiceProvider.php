@@ -29,6 +29,15 @@ class BladeServiceProvider extends ServiceProvider
         Blade::if('subscriptionnotcancelled', function () {
             return request()->account()->isNotCancelled();
         });
+
+        Blade::if('emailconfirmed', function () {
+            return auth()->user()->validated;
+        });
+
+        Blade::if('emailnotconfirmed', function () {
+            return !auth()->user()->validated;
+        });
+
     }
 
     /**
