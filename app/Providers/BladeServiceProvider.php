@@ -19,7 +19,15 @@ class BladeServiceProvider extends ServiceProvider
         });
 
         Blade::if('notsubscribed', function () {
-            return !auth()->check() || !request()->account()->isNotSubscribed();
+            return !auth()->check() || request()->account()->isNotSubscribed();
+        });
+
+        Blade::if('subscriptioncancelled', function () {
+            return request()->account()->isCancelled();
+        });
+
+        Blade::if('subscriptionnotcancelled', function () {
+            return request()->account()->isNotCancelled();
         });
     }
 

@@ -15,6 +15,10 @@ class RedirectIfNotCustomer
      */
     public function handle($request, Closure $next)
     {
+        if (!$request->account()->isCustomer()) {
+            return redirect()->route('account.profile');
+        }
+
         return $next($request);
     }
 }

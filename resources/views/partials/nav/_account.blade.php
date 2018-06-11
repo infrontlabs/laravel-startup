@@ -37,33 +37,45 @@
     @subscribed
         <h3 class="nav-heading">Subscription</h3>
         <ul class="nav flex-column nav-pills mb-4">
+
+            @subscriptionnotcancelled
             <li class="nav-item">
                 <a class="nav-link {{ link_is_active('account/subscription') }}" href="{{ route('account.subscription.details') }}">
                     Details
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/change-plan') }}" href="{{ route('account.subscription.details') }}">
-                    Change plan
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/cancel') }}" href="{{ route('account.subscription.details') }}">
+                <a class="nav-link {{ link_is_active('account/subscription/cancel') }}" href="{{ route('account.subscription.cancel') }}">
                     Cancel subscription
                 </a>
             </li>
+            @endsubscriptionnotcancelled
+
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/resume') }}" href="{{ route('account.subscription.details') }}">
+                <a class="nav-link {{ link_is_active('account/subscription/swap') }}" href="{{ route('account.subscription.swap') }}">
+                    Change plan
+                </a>
+            </li>
+
+            @subscriptioncancelled
+            <li class="nav-item">
+                <a class="nav-link {{ link_is_active('account/subscription/resume') }}" href="{{ route('account.subscription.resume') }}">
                     Resume subscription
                 </a>
             </li>
+            @endsubscriptioncancelled
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('account.subscription.details') }}">
+                <a class="nav-link {{ link_is_active('account/subscription/card') }}" href="{{ route('account.subscription.card') }}">
                     Update card
                 </a>
             </li>
         </ul>
     @endsubscribed
+
+    @notsubscribed
+        You're not currently subscribed.
+        <a href="{{ route('account.subscribe') }}">Get Started!</a>
+    @endnotsubscribed
 
 
     @if (!Auth::user()->validated)

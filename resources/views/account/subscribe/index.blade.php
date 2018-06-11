@@ -7,7 +7,7 @@
             Subscription
         @endslot
 
-        <form action="{{ route('app.account.subscription') }}" method="post" id="payment-form">
+        <form action="{{ route('account.subscribe.process') }}" method="post" id="payment-form">
             <input type="hidden" name="stripe_token" id="stripe_token" />
             {{ csrf_field() }}
 
@@ -37,7 +37,7 @@
             <div id="card-element" class="form-group"></div>
             <hr>
 
-            <button class="btn btn-secondary">Subscribe</button>
+            <button class="btn btn-dark">Subscribe</button>
 
             <div id="card-errors" role="alert"></div>
 

@@ -15,6 +15,11 @@ class RedirectIfNotActive
      */
     public function handle($request, Closure $next)
     {
+
+        if ($request->account()->isNotSubscribed()) {
+            return redirect()->route('account.subscribe')->withError('You need a subscription to access that area.');
+        }
+
         return $next($request);
     }
 }

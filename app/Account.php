@@ -14,16 +14,13 @@ class Account extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'trial_ends_at' => 'date',
+    ];
+
     public function documents()
     {
         return $this->hasMany(Document::class);
-    }
-
-    public function createSubscription($plan, $stripeToken)
-    {
-        return $this->newSubscription(
-            config('subscription.name'), $plan
-        )->create($stripeToken);
     }
 
 }

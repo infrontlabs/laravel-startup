@@ -16,9 +16,33 @@ Route::post('/account/password', 'Account\PasswordController@store')->name('acco
 Route::get('/account/email/resend', 'Auth\EmailConfirmationController@resend')->name('account.email.resend');
 
 /** Account Subscription Routes */
-Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
-// Route::post('/account/subscription', 'Account\SubscriptionController@process')->name('account.subscription');
+
+Route::group(['middleware' => 'subscription.notcancelled'], function () {
+    Route::get('/account/subscription/cancel', 'Account\SubscriptionCancelController@index')->name('account.subscription.cancel');
+    Route::post('/account/subscription/cancel', 'Account\SubscriptionCancelController@process')->name('account.subscription.cancel.process');
+});
+
+Route::group(['middleware' => 'subscription.cancelled'], function () {
+    Route::get('/account/subscription/resume', 'Account\SubscriptionResumeController@index')->name('account.subscription.resume');
+    Route::post('/account/subscription/resume', 'Account\SubscriptionResumeController@process')->name('account.subscription.resume.process');
+});
+
+Route::group(['middleware' => 'subscription.notcancelled'], function () {
+    Route::get('/account/subscription/swap', 'Account\SubscriptionSwapController@index')->name('account.subscription.swap');
+});
+
+Route::group(['middleware' => 'subscription.customer'], function () {
+    Route::get('/account/subscription/card', 'Account\SubscriptionCardController@index')->name('account.subscription.card');
+});
+
+Route::group(['middleware' => 'subscription.active'], function () {
+    Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
+    Route::get('/app', 'Account\DashboardController@index')->name('app.dashboard');
+});
+
+Route::group(['middleware' => 'subscription.inactive'], function () {
+    Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
+    Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
+});
 
 /** Main Application Routes */
-
-Route::get('/app', 'Account\DashboardController@index')->name('app.dashboard');

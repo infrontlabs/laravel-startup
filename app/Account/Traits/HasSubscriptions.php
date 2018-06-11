@@ -13,4 +13,26 @@ trait HasSubscriptions
     {
         return !$this->isSubscribed();
     }
+
+    public function isCancelled()
+    {
+        return optional($this->subscription('main'))->cancelled();
+    }
+
+    public function isNotCancelled()
+    {
+        return !$this->isCancelled();
+    }
+
+    public function isCustomer()
+    {
+        return $this->hasStripeId();
+    }
+
+    public function createSubscription($plan, $stripeToken)
+    {
+        return $this->newSubscription(
+            config('subscription.name'), $plan
+        )->create($stripeToken);
+    }
 }

@@ -19,8 +19,9 @@ services:
     portforward: 6380
 proxy:
   appserver:
-    - laravelsass.lndo.site
-    - dashboard.laravelsass.lndo.site
+    - saas.lndo.site
+  mailhog:
+    - mail.saas.lndo.site
 tooling:
   npm:
     service: cli
