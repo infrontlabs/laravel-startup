@@ -7,7 +7,7 @@ services:
     run:
       - "cd $LANDO_MOUNT && composer install"
   database:
-    portforward: 1443
+    portforward: 3307
   mailhog:
     type: mailhog
     hogfrom:
