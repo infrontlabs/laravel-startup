@@ -5,7 +5,7 @@
 
             </a>
             @if($account)
-                <span class="badge badge-pill badge-primary">{{ $account->name }}</span>
+                <span class="badge badge-pill badge-primary p-2">{{ $account->name }}</span>
             @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">

@@ -26,4 +26,18 @@ class TeamController extends Controller
 
         return redirect()->route('account.team');
     }
+
+    public function resendInvite(TeamInvite $teamInvite, Request $request)
+    {
+        $invite = $request->account()->invites()->save(new TeamInvite([
+            'email' => $teamInvite->email,
+            'role' => $teamInvite->role,
+        ]));
+
+        $teamInvite->delete();
+
+        event(new TeamInviteCreated($invite));
+
+        return redirect()->route('account.team');
+    }
 }

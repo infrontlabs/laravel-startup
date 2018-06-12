@@ -54,7 +54,7 @@
                     <td>{{ $invite->email }}</td>
                     <td>{{ role($invite->role) }}</td>
                     <td>{{ $invite->created_at->diffForHumans() }}</td>
-                    <td><a href="#">Resend</a></td>
+                    <td><a href="{{ route('account.team.invite.resend', $invite) }}">Resend</a></td>
                 </tr>
                 @endforeach
             </tbody>

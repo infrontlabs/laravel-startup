@@ -12,6 +12,7 @@ Route::post('/account/settings', 'Account\SettingsController@store');
 Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
 Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
 Route::post('/account/team', 'Account\TeamController@invite')->name('account.team.invite');
+Route::get('/account/team/invite/resend/{teamInvite}', 'Account\TeamController@resendInvite')->name('account.team.invite.resend');
 
 Route::get('/account/accounts', 'Account\ManageAccountsController@index')->name('account.accounts');
 Route::post('/account/accounts', 'Account\ManageAccountsController@store')->name('account.accounts.store');
