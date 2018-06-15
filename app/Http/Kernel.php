@@ -67,6 +67,6 @@ class Kernel extends HttpKernel
         'subscription.notcancelled' => \App\Http\Middleware\Subscription\RedirectIfCancelled::class,
         'subscription.cancelled' => \App\Http\Middleware\Subscription\RedirectIfNotCancelled::class,
         'subscription.customer' => \App\Http\Middleware\Subscription\RedirectIfNotCustomer::class,
-        'subscription.inactive' => \App\Http\Middleware\Subscription\RedirectIfNotInActive::class,
+        'subscription.inactive' => \App\Http\Middleware\Subscription\RedirectIfNotInactive::class,
     ];
 }
