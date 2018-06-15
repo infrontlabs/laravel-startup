@@ -1,6 +1,10 @@
-@extends('layouts.account')
+@extends('layouts.base')
 
-@section('content')
+@section('base_content')
+<div class="container">
+
+    <a href="{{ route('account.index') }}">Back</a>
+
     @component('components.card')
         @slot('title')
             Switch Accounts
@@ -8,28 +12,26 @@
 
         <p>Multiple accounts allow you to manage unique teams and billing plans.</p>
 
-        <form action="{{ route('account.accounts') }}" method="post">
-                {{ csrf_field() }}
 
                 <div class="form-group">
                     <ul class="list-group">
                         @foreach($accounts as $a)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{$a->name}}
-
-                                {{$a->isSubscribed()}}
+                                {{$a->name}} ({{$a->id}}) - Account owner {{$a->owner->full_name}}
+                                @if($a->isSubscribed())
+                                - Subscribed to {{plan($a->currentPlan())}}
+                                @endif
 
                                 @if($account->id === $a->id)
                                     <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
                                 @else
-                                    <a href="{{ route('account.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
+                                    <a href="{{ route('org.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
                                 @endif
                             </li>
                         @endforeach
                     </ul>
                 </div>
 
-        </form>
 
     @endcomponent
 
@@ -37,12 +39,12 @@
         @slot('title')
             Create another account
         @endslot
-        <form action="{{ route('account.accounts') }}" method="post">
+        <form action="{{ route('accounts') }}" method="post">
                 {{ csrf_field() }}
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Account name" name="account_name" id="new_account">
+                    <input type="text" class="form-control" placeholder="Account name" name="account_name" id="oew_Account">
                     <div class="text-danger">
                         {{ $errors->first('account_name') }}
                     </div>
@@ -53,5 +55,5 @@
         </form>
     @endcomponent
 
-
+</div>
 @endsection

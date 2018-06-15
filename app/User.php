@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Account\Models\Account;
 use App\Traits\HasConfirmationTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Account\Requests\ProfileUpdateRequest;
 use App\Events\Auth\UserChangedEmail;
 use App\Http\Controllers\Controller;
+use App\Account\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {

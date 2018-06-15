@@ -16,7 +16,7 @@ class RedirectIfNotCustomer
     public function handle($request, Closure $next)
     {
         if (!$request->account()->isCustomer()) {
-            return redirect()->route('account.profile');
+            return redirect()->route('account.index');
         }
 
         return $next($request);

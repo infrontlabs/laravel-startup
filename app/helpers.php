@@ -18,11 +18,11 @@ function role($id)
 
 function plan($id)
 {
-    $plans = config('subscription.plans');
-
-    if (!array_key_exists($id, $plans)) {
+    $plans = collect(config('subscription.plans'));
+    $plan = $plans->firstWhere('stripe_id', $id);
+    if (!$plan) {
         return $id;
     }
+    return $plan['name'];
 
-    return $plans[$id];
 }

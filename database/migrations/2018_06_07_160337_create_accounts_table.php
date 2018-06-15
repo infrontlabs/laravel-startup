@@ -15,6 +15,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('uuid')->index();
             $table->string('name');
 
             // Stripe
@@ -25,6 +26,9 @@ class CreateAccountsTable extends Migration
 
             $table->timestamps();
         });
+
+        // DB::statement("ALTER TABLE accounts AUTO_INCREMENT = 10000");
+
     }
 
     /**
@@ -35,5 +39,6 @@ class CreateAccountsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('orgs');
+
     }
 }

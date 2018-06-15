@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Account\Models\TeamInvite;
-use App\Account\Requests\TeamInviteRequest;
 use App\Events\Account\TeamInviteCreated;
 use App\Http\Controllers\Controller;
+use App\Account\Models\TeamInvite;
+use App\Account\Requests\TeamInviteRequest;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -14,7 +14,7 @@ class TeamController extends Controller
     {
         $members = $request->account()->members;
 
-        return view('account.team.index', compact('members'));
+        return view('account.org.team.index', compact('members'));
     }
 
     public function invite(TeamInviteRequest $request)
@@ -24,7 +24,7 @@ class TeamController extends Controller
 
         event(new TeamInviteCreated($invite));
 
-        return redirect()->route('account.team');
+        return redirect()->route('account.org.team');
     }
 
     public function resendInvite(TeamInvite $teamInvite, Request $request)
@@ -38,6 +38,6 @@ class TeamController extends Controller
 
         event(new TeamInviteCreated($invite));
 
-        return redirect()->route('account.team');
+        return redirect()->route('account.org.team');
     }
 }

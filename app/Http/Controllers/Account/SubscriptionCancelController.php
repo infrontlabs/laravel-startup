@@ -9,13 +9,13 @@ class SubscriptionCancelController extends Controller
 {
     public function index()
     {
-        return view('account.subscription.cancel');
+        return view('account.org.subscription.cancel');
     }
 
     public function process(Request $request)
     {
         $request->account()->subscription('main')->cancel();
 
-        return redirect()->route('account.profile')->withSuccess('Your subscription has been cancelled.');
+        return redirect()->route('account.index')->withSuccess('Your subscription has been cancelled.');
     }
 }

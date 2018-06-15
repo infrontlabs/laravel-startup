@@ -2,7 +2,7 @@
 
 namespace App\Account;
 
-use App\Account;
+use App\Account\Models\Account;
 
 class Manager
 {
@@ -12,7 +12,7 @@ class Manager
     {
         $this->account = $account;
 
-        session()->put('account', $this->account->id);
+        session()->put('account', $this->account->uuid);
     }
 
     public function getAccount()

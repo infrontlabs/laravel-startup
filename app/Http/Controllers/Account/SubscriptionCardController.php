@@ -9,13 +9,13 @@ class SubscriptionCardController extends Controller
 {
     public function index()
     {
-        return view('account.subscription.card');
+        return view('account.org.subscription.card');
     }
 
     public function store(UpdateCardRequest $request)
     {
         $request->account()->updateCard($request->get('stripe_token'));
 
-        return redirect()->route('account.profile')->withSuccess('Your card has been updated.');
+        return redirect()->route('account.index')->withSuccess('Your card has been updated.');
     }
 }

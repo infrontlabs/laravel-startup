@@ -7,7 +7,7 @@
             Subscription
         @endslot
 
-        <form action="{{ route('account.subscribe.process') }}" method="post" id="payment-form">
+        <form action="{{ route('account.org.subscribe.process') }}" method="post" id="payment-form">
             <input type="hidden" name="stripe_token" id="stripe_token" />
             {{ csrf_field() }}
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Account;
 use App\Events\Auth\UserSignedUp;
 use App\Http\Controllers\Controller;
+use App\Account\Models\Account;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -77,7 +77,7 @@ class RegisterController extends Controller
         ]);
 
         $user->accounts()->save(Account::create([
-            'name' => $data['last_name'] . $data['first_name'],
+            'name' => $data['first_name'] . $data['last_name'],
         ]));
 
         return $user;
@@ -88,6 +88,6 @@ class RegisterController extends Controller
         // send email
         event(new UserSignedUp($user));
 
-        return redirect($this->redirectPath())->withSuccess('Your account has been created! Please check your email for an activation link.');
+        return redirect($this->redirectPath())->withSuccess('Your account has been created! Please check your email for an confirmation link.');
     }
 }

@@ -16,7 +16,7 @@ class RedirectIfCancelled
     public function handle($request, Closure $next)
     {
         if ($request->account()->isNotSubscribed() || $request->account()->isCancelled()) {
-            return redirect()->route('account.profile');
+            return redirect()->route('account.index');
         }
         return $next($request);
     }

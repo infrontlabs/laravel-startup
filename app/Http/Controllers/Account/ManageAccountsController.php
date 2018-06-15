@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Account;
 use App\Account\Manager;
+use App\Account\Models\Account;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Account\CreateAccountRequest;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class ManageAccountsController extends Controller
     {
         $accounts = $request->user()->accounts;
 
-        return view('account.manage.index', compact('accounts'));
+        return view('account.org.manage.index', compact('accounts'));
     }
 
     public function store(CreateAccountRequest $request)
@@ -25,6 +25,6 @@ class ManageAccountsController extends Controller
 
         app(Manager::class)->setAccount($account);
 
-        return back()->withSuccess('Account created!');
+        return redirect()->route('account.index')->withSuccess('Account created!');
     }
 }

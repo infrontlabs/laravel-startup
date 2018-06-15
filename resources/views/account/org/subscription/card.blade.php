@@ -6,7 +6,7 @@
             Update Card
         @endslot
 
-        <form id="payment-form" action="{{ route('account.subscription.card.store') }}" method="post">
+        <form id="payment-form" action="{{ route('account.org.subscription.card.store') }}" method="post">
             <input type="hidden" name="stripe_token" id="stripe_token" />
             {{ csrf_field() }}
 

@@ -1,10 +1,10 @@
 <aside>
 
 
-    <h3 class="nav-heading">User</h3>
+    <h3 class="nav-heading">Personal</h3>
     <ul class="nav flex-column nav-pills mb-4">
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account') }}" href="{{ route('account.profile') }}">
+        <a class="nav-link {{ link_is_active('account') }}" href="{{ route('account.index') }}">
             Profile
         </a>
         </li>
@@ -23,39 +23,35 @@
     <h3 class="nav-heading">Account</h3>
     <ul class="nav flex-column nav-pills mb-4">
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/settings') }}" href="{{ route('account.settings') }}">
+        <a class="nav-link {{ link_is_active('account/org/settings') }}" href="{{ route('account.org.settings') }}">
             Settings
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/team') }}" href="{{ route('account.team') }}">
-            Manage Team
+        <a class="nav-link {{ link_is_active('account/org/team') }}" href="{{ route('account.org.team') }}">
+            Manage Users
         </a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/accounts') }}" href="{{ route('account.accounts') }}">
-            Switch accounts
-        </a>
-        </li>
+
     </ul>
 
-    <h3 class="nav-heading">Plans and Billing</h3>
-    @subscribed
-        <ul class="nav flex-column nav-pills mb-4">
+    <h3 class="nav-heading">Subscription</h3>
+    <ul class="nav flex-column nav-pills mb-4">
 
+    @subscribed
             @subscriptionnotcancelled
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription') }}" href="{{ route('account.subscription.details') }}">
-                    Details
+                <a class="nav-link {{ link_is_active('account/org/subscription') }}" href="{{ route('account.org.subscription.details') }}">
+                    Subscription Details
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/cancel') }}" href="{{ route('account.subscription.cancel') }}">
+                <a class="nav-link {{ link_is_active('account/org/subscription/cancel') }}" href="{{ route('account.org.subscription.cancel') }}">
                     Cancel subscription
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/swap') }}" href="{{ route('account.subscription.swap') }}">
+                <a class="nav-link {{ link_is_active('account/org/subscription/swap') }}" href="{{ route('account.org.subscription.swap') }}">
                     Change plan
                 </a>
             </li>
@@ -64,30 +60,31 @@
 
             @subscriptioncancelled
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/resume') }}" href="{{ route('account.subscription.resume') }}">
+                <a class="nav-link {{ link_is_active('account/org/subscription/resume') }}" href="{{ route('account.org.subscription.resume') }}">
                     Resume subscription
                 </a>
             </li>
             @endsubscriptioncancelled
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/card') }}" href="{{ route('account.subscription.card') }}">
+                <a class="nav-link {{ link_is_active('account/org/subscription/card') }}" href="{{ route('account.org.subscription.card') }}">
                     Update card
                 </a>
             </li>
-        </ul>
     @endsubscribed
 
     @notsubscribed
-        <ul class="nav flex-column nav-pills mb-4">
-            <li class="nav-item text-danger">You are not currently subscribed.</li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscribe') }}" style="text-decoration: underline;" href="{{ route('account.subscribe') }}">
+                <a class="nav-link {{ link_is_active('account/org/subscribe') }}" href="{{ route('account.org.subscribe') }}">
                     Choose a plan!
                 </a>
             </li>
 
-        </ul>
     @endnotsubscribed
+        </ul>
+
+        <a href="{{ route('accounts') }}">
+                Switch Accounts
+            </a>
 
 
     @emailnotconfirmed

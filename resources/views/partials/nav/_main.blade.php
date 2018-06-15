@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <strong>InFront</strong><span>SaaS</span>
-
+                <strong><span style="color:#3E6BB5;">Startup</span></strong>
             </a>
             @if($account)
                 <span class="badge badge-pill badge-primary p-2">{{ $account->name }}</span>
@@ -40,7 +39,7 @@
                             <a class="dropdown-item" href="{{ route('app.dashboard') }}">
                                 {{ __('Dashboard') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('account.profile') }}">
+                            <a class="dropdown-item" href="{{ route('account.index') }}">
                                 {{ __('Account') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

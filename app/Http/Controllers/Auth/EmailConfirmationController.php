@@ -16,7 +16,7 @@ class EmailConfirmationController extends Controller
 
         Auth::loginUsingId($token->user->id);
 
-        return redirect()->intended('/account')->withSuccess('Email has been confirmed!');
+        return redirect()->intended('/org')->withSuccess('Email has been confirmed!');
 
     }
 

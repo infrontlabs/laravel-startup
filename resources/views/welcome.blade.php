@@ -14,7 +14,7 @@
         html,
         body {
             background-color: #fff;
-            color: #636b6f;
+            color: #333;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
             height: 100vh;
@@ -85,16 +85,11 @@
             </div>
         @endif
             <div class="title m-b-md">
-            <span style="color:#ea7d3c;">InFront</span><span style="color:#3E6BB5;">SaaS</span>
+                <span style="color:#3E6BB5;">Startup</span>
             </div>
+            <p>A Laravel based multi-tenent platform for your next SaaS.</p>
 
-            <div class="links">
-                <a href="https://laravel.com/docs">Documentation</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>
-            </div>
+
         </div>
     </div>
 </body>

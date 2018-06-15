@@ -2,8 +2,8 @@
 
 namespace App\Account\Middleware;
 
-use App\Account;
 use App\Account\Manager;
+use App\Account\Models\Account;
 use Closure;
 
 class AccountMiddleware
@@ -24,7 +24,7 @@ class AccountMiddleware
         if (!$account || !auth()->user()->isMemberOf($account)) {
             $this->registerAccount(auth()->user()->accounts()->first());
 
-            return redirect()->route('account.accounts')->withError('There was a problem switching accounts. Please try again.');
+            return redirect()->route('accounts')->withError('There was a problem switching account. Please try again.');
         }
 
         $this->registerAccount($account);
@@ -39,7 +39,7 @@ class AccountMiddleware
 
     public function resolveAccount($id)
     {
-        $account = Account::find($id);
+        $account = Account::where('uuid', $id)->first();
 
         if (!$account && auth()->user()) {
             $account = auth()->user()->accounts()->first();

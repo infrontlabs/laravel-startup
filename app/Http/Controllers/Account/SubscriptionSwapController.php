@@ -12,13 +12,13 @@ class SubscriptionSwapController extends Controller
         $plans = collect(config('subscription.plans'))->where('active', true);
         $currentPlan = $request->account()->currentPlan();
 
-        return view('account.subscription.swap', compact('plans', 'currentPlan'));
+        return view('account.org.subscription.swap', compact('plans', 'currentPlan'));
     }
 
     public function store(Request $request)
     {
         $request->account()->subscription('main')->swap($request->get('plan'));
 
-        return redirect()->route('account.subscription.details')->withSuccess('Your subscription has been updated');
+        return redirect()->route('account.org.subscription.details')->withSuccess('Your subscription has been updated');
     }
 }
