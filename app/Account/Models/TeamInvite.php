@@ -9,7 +9,7 @@ class TeamInvite extends Model
 {
     protected $guarded = [];
 
-    public function accounts()
+    public function account()
     {
         return $this->belongsTo(Account::class);
     }
