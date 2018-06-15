@@ -2,6 +2,11 @@
 
 A Laravel based multi-tenent platform for your next SaaS.
 
+- Multi-Tenant
+- Connects to Stripe
+- Configure plans
+- Manage users and roles
+
 ## Easy environment bootstrap with Lando
 
 The quickest and easist way to get your environment up and running is to use Lando. Please, see their website to get it installed and configured.
