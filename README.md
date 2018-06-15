@@ -1,4 +1,4 @@
-# InFront SaaS
+# InFront Startup
 
 A Laravel based multi-tenent platform for your next SaaS.
 
