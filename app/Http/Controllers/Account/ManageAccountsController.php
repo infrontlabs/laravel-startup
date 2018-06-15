@@ -14,7 +14,7 @@ class ManageAccountsController extends Controller
     {
         $accounts = $request->user()->accounts;
 
-        return view('account.org.manage.index', compact('accounts'));
+        return view('account.manage.index', compact('accounts'));
     }
 
     public function store(CreateAccountRequest $request)

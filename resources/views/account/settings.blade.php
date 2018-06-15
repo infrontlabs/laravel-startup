@@ -6,7 +6,7 @@
             Account Settings
         @endslot
 
-        <form action="{{ route('account.org.settings') }}" method="post">
+        <form action="{{ route('account.settings') }}" method="post">
             @csrf
 
             <div class="form-group">

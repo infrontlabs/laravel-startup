@@ -9,7 +9,7 @@ class SubscriptionCardController extends Controller
 {
     public function index()
     {
-        return view('account.org.subscription.card');
+        return view('account.subscription.card');
     }
 
     public function store(UpdateCardRequest $request)

@@ -17,7 +17,7 @@ class RedirectIfNotActive
     {
 
         if ($request->account()->isCancelled() || $request->account()->isNotSubscribed()) {
-            return redirect()->route('account.org.subscribe')->withError('You need a subscription to access that area.');
+            return redirect()->route('account.subscribe')->withError('You need a subscription to access that area.');
         }
 
         return $next($request);

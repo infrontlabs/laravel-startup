@@ -6,7 +6,7 @@
             Change Plan
         @endslot
 
-        <form action="{{ route('account.org.subscription.swap.store') }}" method="post" id="payment-form">
+        <form action="{{ route('account.subscription.swap.store') }}" method="post" id="payment-form">
                 <input type="hidden" name="stripe_token" id="stripe_token" />
                 {{ csrf_field() }}
 

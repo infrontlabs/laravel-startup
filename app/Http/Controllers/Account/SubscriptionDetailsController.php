@@ -17,6 +17,6 @@ class SubscriptionDetailsController extends Controller
             'nextBillDate' => $nextBillDate,
             'paymentMethod' => $account->card_brand . " ****" . $account->card_last_four,
         ];
-        return view('account.org.subscription.details', compact('details'));
+        return view('account.subscription.details', compact('details'));
     }
 }

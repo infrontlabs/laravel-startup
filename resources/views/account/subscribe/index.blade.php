@@ -7,11 +7,12 @@
             Subscription
         @endslot
 
-        <form action="{{ route('account.org.subscribe.process') }}" method="post" id="payment-form">
+        <form action="{{ route('account.subscribe.process') }}" method="post" id="payment-form">
             <input type="hidden" name="stripe_token" id="stripe_token" />
             {{ csrf_field() }}
 
             <div class="form-group">
+                <label for="card-element">Select a Plan</label>
                 <ul class="list-group">
                     @foreach($plans as $plan)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -26,16 +27,10 @@
                 </ul>
             </div>
 
-            <div class="form-group row">
-                <label for="qty" class="col-sm-2 col-form-label">Seats</label>
-                <div class="col-sm-9">
-                    <input type="number" class="form-control" name="qty" id="qty" value="1" style="width: 3em; padding-right: 0;">
-                </div>
+            <div class="form-group">
+                <label for="card-element">Enter Payment</label>
+                <div id="card-element"></div>
             </div>
-
-            <hr>
-            <div id="card-element" class="form-group"></div>
-            <hr>
 
             <button class="btn btn-dark">Subscribe</button>
 

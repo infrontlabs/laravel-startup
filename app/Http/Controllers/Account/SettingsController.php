@@ -9,7 +9,7 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        return view('account.org.settings');
+        return view('account.settings');
     }
 
     public function store(CreateAccountRequest $request)

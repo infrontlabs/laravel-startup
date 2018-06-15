@@ -6,7 +6,7 @@
             Cancel Subscription
         @endslot
 
-        <form action="{{ route('account.org.subscription.cancel.process') }}" method="post">
+        <form action="{{ route('account.subscription.cancel.process') }}" method="post">
             @csrf
 
 

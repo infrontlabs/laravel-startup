@@ -9,7 +9,7 @@ class SubscriptionCancelController extends Controller
 {
     public function index()
     {
-        return view('account.org.subscription.cancel');
+        return view('account.subscription.cancel');
     }
 
     public function process(Request $request)

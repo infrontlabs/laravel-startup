@@ -9,13 +9,13 @@ class SubscriptionResumeController extends Controller
 {
     public function index()
     {
-        return view('account.org.subscription.resume');
+        return view('account.subscription.resume');
     }
 
     public function process(Request $request)
     {
         $request->account()->subscription('main')->resume();
 
-        return redirect()->route('account.org.subscription.details')->withSuccess('Your subscription has been resumed.');
+        return redirect()->route('account.subscription.details')->withSuccess('Your subscription has been resumed.');
     }
 }

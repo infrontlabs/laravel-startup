@@ -6,7 +6,7 @@
             Resume Subscription
         @endslot
 
-        <form action="{{ route('account.org.subscription.resume.process') }}" method="post">
+        <form action="{{ route('account.subscription.resume.process') }}" method="post">
             @csrf
 
 

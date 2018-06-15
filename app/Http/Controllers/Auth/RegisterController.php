@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Account\Models\Account;
 use App\Events\Auth\UserSignedUp;
 use App\Http\Controllers\Controller;
-use App\Account\Models\Account;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -77,7 +77,7 @@ class RegisterController extends Controller
         ]);
 
         $user->accounts()->save(Account::create([
-            'name' => $data['first_name'] . $data['last_name'],
+            'name' => $user->full_name,
         ]));
 
         return $user;

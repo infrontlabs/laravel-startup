@@ -19,9 +19,9 @@ services:
     portforward: 6380
 proxy:
   appserver:
-    - saas.lndo.site
+    - startup.lndo.site
   mailhog:
-    - mail.saas.lndo.site
+    - mail.startup.lndo.site
 tooling:
   npm:
     service: cli

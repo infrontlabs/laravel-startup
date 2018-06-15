@@ -22,12 +22,12 @@ Once up and running, clone the repo and cd into the root of the project. Then ru
 When lando finishes, you will have the following services:
 
 - Website
-  - http://saas.lndo.site
-  - https://saas.lndo.site
+  - http://startup.lndo.site
+  - https://startup.lndo.site
 
 - Database
   - localhost:3307
 
 - Mailhog
-  - http://mail.saas.lndo.site
-  - https://mail.saas.lndo.site
+  - http://mail.startup.lndo.site
+  - https://mail.startup.lndo.site
