@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware\Subscription;
+namespace App\Http\Middleware\Account\Subscription;
 
 use Closure;
 
-class RedirectIfNotCustomer
+class RedirectIfNotActive
 {
     /**
      * Handle an incoming request.
@@ -15,8 +15,9 @@ class RedirectIfNotCustomer
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->account()->isCustomer()) {
-            return redirect()->route('account.index');
+
+        if ($request->account()->isCancelled() || $request->account()->isNotSubscribed()) {
+            return redirect()->route('account.subscribe')->withError('You need a subscription to access that area.');
         }
 
         return $next($request);

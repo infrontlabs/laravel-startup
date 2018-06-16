@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware\Subscription;
+namespace App\Http\Middleware\Account\Subscription;
 
 use Closure;
 
-class RedirectIfNotCancelled
+class RedirectIfNotCustomer
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class RedirectIfNotCancelled
      */
     public function handle($request, Closure $next)
     {
-        if ($request->account()->isNotCancelled()) {
+        if (!$request->account()->isCustomer()) {
             return redirect()->route('account.index');
         }
 

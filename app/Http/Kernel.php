@@ -63,10 +63,11 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'subscription.active' => \App\Http\Middleware\Subscription\RedirectIfNotActive::class,
-        'subscription.notcancelled' => \App\Http\Middleware\Subscription\RedirectIfCancelled::class,
-        'subscription.cancelled' => \App\Http\Middleware\Subscription\RedirectIfNotCancelled::class,
-        'subscription.customer' => \App\Http\Middleware\Subscription\RedirectIfNotCustomer::class,
-        'subscription.inactive' => \App\Http\Middleware\Subscription\RedirectIfNotInactive::class,
+        'subscription.active' => \App\Http\Middleware\Account\Subscription\RedirectIfNotActive::class,
+        'subscription.notcancelled' => \App\Http\Middleware\Account\Subscription\RedirectIfCancelled::class,
+        'subscription.cancelled' => \App\Http\Middleware\Account\Subscription\RedirectIfNotCancelled::class,
+        'subscription.customer' => \App\Http\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
+        'subscription.inactive' => \App\Http\Middleware\Account\Subscription\RedirectIfNotInactive::class,
+        'email.confirmed' => \App\Http\Middleware\Account\RedirectIfEmailNotConfirmed::class,
     ];
 }

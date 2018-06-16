@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware\Subscription;
+namespace App\Http\Middleware\Account;
 
 use Closure;
 
-class RedirectIfNotInactive
+class RedirectIfEmailNotConfirmed
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,10 @@ class RedirectIfNotInactive
      */
     public function handle($request, Closure $next)
     {
+        if (!$request->user()->validated) {
+            return redirect()->route('account.index')->withError('Your email needs to be confirmed to access that area.');
+        }
+
         return $next($request);
     }
 }

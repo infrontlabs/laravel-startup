@@ -9,7 +9,6 @@ Route::post('/account', 'Account\ProfileController@store')->name('account.profil
 
 Route::get('/account/settings', 'Account\SettingsController@index')->name('account.settings');
 Route::post('/account/settings', 'Account\SettingsController@store');
-Route::get('/account/billing', 'Account\BillingController@index')->name('account.billing');
 
 Route::get('/account/team/invite/resend/{teamInvite}', 'Account\TeamController@resendInvite')->name('account.team.invite.resend');
 
@@ -51,10 +50,9 @@ Route::group(['middleware' => 'subscription.active'], function () {
 
 });
 
-Route::group(['middleware' => 'subscription.inactive'], function () {
+Route::group(['middleware' => ['subscription.inactive', 'email.confirmed']], function () {
     Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
     Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
-
 });
 
 /** Main Application Routes */
