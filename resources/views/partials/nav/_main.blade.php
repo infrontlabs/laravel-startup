@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-startup">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <strong><span style="color:#3E6BB5;">Startup</span></strong>
+                <strong><span>InFrontStartup</span></strong>
             </a>
             @if($account)
-                <span class="badge badge-pill badge-primary p-2">{{ $account->name }}</span>
+                <a href="{{ route('app.dashboard') }}" class="badge badge-pill badge-secondary p-2">Dashboard</a>
             @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +31,7 @@
                             @if (!auth::user()->validated)
                                 <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
                             @endif
-                            {{ Auth::user()->first_name }}
-                            <span class="caret"></span>
+                            <span style="font-size: 2em;"><i class="fa fa-user"></i></span>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

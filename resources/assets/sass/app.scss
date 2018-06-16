@@ -8,9 +8,22 @@
 @import "~bootstrap/scss/bootstrap";
 @import "text";
 
-.navbar-laravel {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.navbar-startup {
+    padding: 0;
+    line-height: 35px;
+
+    .dropdown-menu {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .dropdown-item {
+        line-height: 30px;
+    }
+
+    .nav-item.show {
+        background-color: $secondary;
+    }
 }
 
 .card {

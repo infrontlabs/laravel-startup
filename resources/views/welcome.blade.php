@@ -13,7 +13,7 @@
     <style>
         html,
         body {
-            background-color: #fff;
+            background-color: #3AA5A9;
             color: #333;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
@@ -85,7 +85,7 @@
             </div>
         @endif
             <div class="title m-b-md">
-                <span style="color:#3E6BB5;">Startup</span>
+                <span style="color:#000;">InFront</span><span style="color:#FFF;">StartUp</span>
             </div>
             <p>A Laravel based multi-tenent platform for your next SaaS.</p>
 
