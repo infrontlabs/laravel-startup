@@ -8,6 +8,9 @@
 
     <title>Laravel</title>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     <!-- Styles -->
     <style>
@@ -15,8 +18,8 @@
         body {
             background-color: #3AA5A9;
             color: #333;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
             height: 100vh;
             margin: 0;
         }
@@ -84,10 +87,22 @@
                 {{ session('error') }}
             </div>
         @endif
-            <div class="title m-b-md">
+            <div class="title">
                 <span style="color:#000;">InFront</span><span style="color:#FFF;">StartUp</span>
             </div>
             <p>A Laravel based multi-tenent platform for your next SaaS.</p>
+
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-lg btn-block btn-outline-secondary"
+                        href="https://github.com/infrontlabs/infront-startup">
+                        <i class="fab fa-github"></i>
+                        Download</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-lg btn-block btn-secondary" href="/account">Demo</a>
+                </div>
+            </div>
 
 
         </div>
