@@ -3,6 +3,7 @@
 A Laravel based multi-tenent platform for your next SaaS.
 
 - Multi-Tenant
+- Team Billing
 - Connects to Stripe
 - Configure plans
 - Manage users and roles
