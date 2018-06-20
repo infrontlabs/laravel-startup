@@ -6,6 +6,7 @@ A Laravel based multi-tenent platform for your next SaaS.
 - Connects to Stripe
 - Configure plans
 - Manage users and roles
+- API Authentication for your mobile app or SPA
 
 ## Easy environment bootstrap with Lando
 
@@ -22,10 +23,12 @@ Once up and running, clone the repo and cd into the root of the project. Then ru
 When lando finishes, you will have the following services:
 
 - Website
+
   - http://startup.lndo.site
   - https://startup.lndo.site
 
 - Database
+
   - localhost:3307
 
 - Mailhog
