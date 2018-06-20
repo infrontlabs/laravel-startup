@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
-    use ThrottlesLogins;
 
     public function __construct()
     {
@@ -24,22 +21,14 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        if ($this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-
-            return $this->sendLockoutResponse($request);
-        }
-
         if ($this->attemptLogin($request)) {
             return $this->authTokenResponse($request);
         }
 
-        $this->incrementLoginAttempts($request);
+        return response()->json([
+            'message' => 'Login failed',
+        ], 401);
 
-        return abort(401);
     }
 
     /**
