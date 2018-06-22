@@ -16,12 +16,7 @@ class RedirectIfSubscriptionActive
      */
     public function handle($request, Closure $next)
     {
-        $account = $request->account();
-        if (!$account && session()->get('account')) {
-            $account = Account::where('uuid', session()->get('account'))->first();
-        }
-
-        if ($request->user() && $account && $account->isSubscribed()) {
+        if ($request->user() && $request->account() && $request->account()->isSubscribed()) {
             return redirect()->route('account.index')->withError('You already have a subscription');
         }
 

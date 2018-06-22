@@ -17,6 +17,14 @@ class Manager
 
     public function getAccount()
     {
-        return $this->account;
+        if ($this->account) {
+            return $this->account;
+        }
+
+        if (session()->get('account')) {
+            return Account::where('uuid', session()->get('account'))->first();
+        }
+
+        return null;
     }
 }
