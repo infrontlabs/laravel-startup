@@ -2,13 +2,13 @@
 
 namespace App\Listeners\Auth;
 
-use App\Mail\Auth\ActivationEmail;
+use App\Mail\Auth\EmailConfirmation;
 use Illuminate\Support\Facades\Mail;
 
 // use Illuminate\Queue\InteractsWithQueue;
 // use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendActivationEmail
+class SendEmailConfirmation
 {
 
     /**
@@ -19,6 +19,6 @@ class SendActivationEmail
      */
     public function handle($event)
     {
-        Mail::to($event->user)->send(new ActivationEmail($event->user->createConfirmationToken()));
+        Mail::to($event->user)->send(new EmailConfirmation($event->user->createConfirmationToken()));
     }
 }

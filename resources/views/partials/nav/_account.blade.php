@@ -88,7 +88,7 @@
 
     @emailnotconfirmed
         <hr>
-        <p><i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
+        <p><i data-toggle="tooltip" data-placement="left" title="Email address has not been confirmed." class="fas fa-exclamation-triangle text-danger"></i>
         Email unconfirmed. <a href="{{ route('account.email.resend') }}">Resend</a></p>
     @endemailnotconfirmed
 

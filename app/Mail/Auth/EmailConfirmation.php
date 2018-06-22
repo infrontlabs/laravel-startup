@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ActivationEmail extends Mailable
+class EmailConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,6 +29,6 @@ class ActivationEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Please activate your account')->markdown('emails.activation');
+        return $this->subject('Please confirm your email address')->markdown('emails.confirmation');
     }
 }

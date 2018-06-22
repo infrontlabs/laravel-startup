@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\Account\Requests\ProfileUpdateRequest;
 use App\Events\Auth\UserChangedEmail;
 use App\Http\Controllers\Controller;
-use App\Account\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -21,8 +21,8 @@ class ProfileController extends Controller
 
         $request->user()->update($request->only('first_name', 'last_name', 'email'));
         if ($email !== $oldEmail) {
-            $request->user()->update(['validated' => false]);
-            $request->session()->flash('emailChanged', 'Please check your email to validate your new address.');
+            $request->user()->update(['email_confirmed' => false]);
+            $request->session()->flash('emailChanged', 'Please check your email to confirm your new email address.');
             event(new UserChangedEmail($request->user()));
         }
 

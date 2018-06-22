@@ -14,10 +14,10 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\Auth\UserSignedUp' => [
-            'App\Listeners\Auth\SendActivationEmail',
+            'App\Listeners\Auth\SendEmailConfirmation',
         ],
         'App\Events\Auth\UserChangedEmail' => [
-            'App\Listeners\Auth\SendActivationEmail',
+            'App\Listeners\Auth\SendEmailConfirmation',
         ],
         'App\Events\Account\TeamInviteCreated' => [
             'App\Listeners\Account\SendTeamInviteEmail',

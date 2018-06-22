@@ -15,7 +15,7 @@ class RedirectIfEmailNotConfirmed
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->validated) {
+        if (!$request->user()->email_confirmed) {
             return redirect()->route('account.index')->withError('Your email needs to be confirmed to access that area.');
         }
 

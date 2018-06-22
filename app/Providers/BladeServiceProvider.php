@@ -31,11 +31,11 @@ class BladeServiceProvider extends ServiceProvider
         });
 
         Blade::if('emailconfirmed', function () {
-            return auth()->user()->validated;
+            return auth()->user()->email_confirmed;
         });
 
         Blade::if('emailnotconfirmed', function () {
-            return !auth()->user()->validated;
+            return !auth()->user()->email_confirmed;
         });
 
     }

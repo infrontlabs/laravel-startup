@@ -33,7 +33,9 @@ trait HasSubscriptions
     {
         return $this->newSubscription(
             config('subscription.name'), $plan
-        )->create($stripeToken);
+        )->create($stripeToken, [
+            'email' => auth()->user()->email,
+        ]);
     }
 
     public function currentPlan()
