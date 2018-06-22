@@ -88,6 +88,6 @@ class RegisterController extends Controller
         // send email
         event(new UserSignedUp($user));
 
-        return redirect($this->redirectPath())->withSuccess('Your account has been created! Please check your email for an confirmation link.');
+        return redirect()->intended($this->redirectPath())->withSuccess('Your account has been created! Please check your email for an confirmation link.');
     }
 }

@@ -50,9 +50,7 @@ Route::group(['middleware' => 'subscription.active'], function () {
 
 });
 
-Route::group(['middleware' => ['subscription.inactive', 'email.confirmed']], function () {
-    Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
-    Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
-});
+Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
+Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
 
 /** Main Application Routes */

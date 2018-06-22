@@ -23,7 +23,7 @@
         @include('partials.nav._main')
 
         <main class="py-4">
-            @yield('base_content')
+            @yield('base.content')
           </main>
     </div>
 

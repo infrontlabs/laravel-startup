@@ -73,7 +73,7 @@
 
     @notsubscribed
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscribe') }}" href="{{ route('account.subscribe') }}">
+                <a class="nav-link" href="{{ route('plans.index') }}">
                     Choose a plan!
                 </a>
             </li>

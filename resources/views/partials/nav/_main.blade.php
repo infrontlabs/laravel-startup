@@ -13,10 +13,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-
+                    @guest
+                    <li>
+                        <a class="nav-link" href="{{ route('plans.index') }}">{{ __('Plans') }}</a>
+                    </li>
+                    @endguest
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+
                     @guest
                     <li>
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -29,7 +34,7 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
                                 @if (!auth::user()->validated)
-                                <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
+                                <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger mr-2"></i>
                                 @endif
                                 <span style="font-size: 1.7em;" class="align-middle"><i class="fa fa-user"></i></span>
                                 <span>
