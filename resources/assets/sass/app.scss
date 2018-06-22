@@ -41,3 +41,18 @@
     padding: 1rem 1.25rem;
     border-bottom: solid 1px #eee;
 }
+
+.dropdown-menu {
+    background-color: $secondary;
+    border: 0;
+    color: white;
+
+    a {
+        color: white;
+    }
+
+    a:hover {
+        background-color: darken($secondary, 5%);
+        color: white;
+    }
+}

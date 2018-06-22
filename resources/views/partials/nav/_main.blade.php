@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-startup">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <strong><span>InFrontStartup</span></strong>
+                <strong><span>LaravelStartup</span></strong>
             </a>
-            @if($account)
-                <a href="{{ route('app.dashboard') }}" class="badge badge-pill badge-secondary p-2">Dashboard</a>
+            @if($account && !link_is_active('app'))
+                <a href="{{ route('app.dashboard') }}" class="badge badge-pill p-2" style="background-color: #6c757d; color: white;">Back to Dashboard</a>
             @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,13 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                            @if (!auth::user()->validated)
+                                @if (!auth::user()->validated)
                                 <i data-toggle="tooltip" data-placement="left" title="Email address has not been validated." class="fas fa-exclamation-triangle text-danger"></i>
-                            @endif
-                            <span style="font-size: 2em;"><i class="fa fa-user"></i></span>
+                                @endif
+                                <span style="font-size: 1.7em;" class="align-middle"><i class="fa fa-user"></i></span>
+                                <span>
+                                {{ auth::user()->full_name }}
+                                </span>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

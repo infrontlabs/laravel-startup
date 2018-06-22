@@ -88,7 +88,7 @@
             </div>
         @endif
             <div class="title">
-                <span style="color:#000;">InFront</span><span style="color:#FFF;">StartUp</span>
+                <span style="color:#000;">Laravel</span><span style="color:#FFF;">StartUp</span>
             </div>
             <p>A Laravel based multi-tenent platform for your next SaaS.</p>
 
