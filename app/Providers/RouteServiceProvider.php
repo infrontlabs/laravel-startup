@@ -62,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAccountRoutes()
     {
-        Route::middleware(['web', 'account', 'bindings'])
+        Route::middleware(['web', 'auth', 'account', 'bindings'])
             ->namespace($this->namespace)
             ->group(base_path('routes/account.php'));
     }
