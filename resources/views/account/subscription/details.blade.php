@@ -1,6 +1,14 @@
 @extends('layouts.account')
 
+
+
 @section('content')
+
+    @subscriptionontrial
+        <div class="alert alert-warning">Your free trial ends in {{$account->trialEndsAt()->diffForHumans()}}</div>
+    @endsubscriptionontrial
+
+
     @component('components.card')
         @slot('title')
             Subscription Details

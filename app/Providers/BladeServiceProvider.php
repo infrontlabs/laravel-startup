@@ -38,6 +38,10 @@ class BladeServiceProvider extends ServiceProvider
             return !auth()->user()->email_confirmed;
         });
 
+        Blade::if('subscriptionontrial', function () {
+            return request()->account()->isOnTrial();
+        });
+
     }
 
     /**

@@ -21,7 +21,7 @@
                                 <label class="form-check-label" for="plan_{{$plan['stripe_id']}}">&nbsp;{{$plan['name']}}</label>
                                 &nbsp;
                             </div>
-                            <span>{{$plan['price']}} {{$plan['interval']}}</span>
+                            <span>{{$plan['price']}}</span>
                         </li>
                     @endforeach
                 </ul>

@@ -33,13 +33,25 @@ trait HasSubscriptions
     {
         return $this->newSubscription(
             config('subscription.name'), $plan
-        )->create($stripeToken, [
-            'email' => auth()->user()->email,
-        ]);
+        )
+            ->trialDays(config('subscription.trial_days'))
+            ->create($stripeToken, [
+                'email' => auth()->user()->email,
+            ]);
     }
 
     public function currentPlan()
     {
         return $this->subscription('main')->stripe_plan;
+    }
+
+    public function isOnTrial()
+    {
+        return $this->subscription('main')->onTrial();
+    }
+
+    public function trialEndsAt()
+    {
+        return $this->subscription('main')->trial_ends_at;
     }
 }

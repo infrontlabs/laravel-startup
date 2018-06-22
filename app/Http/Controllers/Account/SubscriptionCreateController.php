@@ -16,7 +16,14 @@ class SubscriptionCreateController extends Controller
 
     public function process(Request $request)
     {
-        $request->account()->createSubscription('basic', $request->get('stripe_token'));
+        $plans = collect(config('subscription.plans'))->where('active', true);
+        $selectedPlan = $plans->where('stripe_id', $request->get('plan'))->first();
+
+        if (!$selectedPlan) {
+            return redirect()->route('plans.index')->withError('There was a problem. Please select another plan.');
+        }
+
+        $request->account()->createSubscription($selectedPlan['stripe_id'], $request->get('stripe_token'));
 
         return redirect()->route('account.subscription.details')->withSuccess('Your subscription has started!');
     }
