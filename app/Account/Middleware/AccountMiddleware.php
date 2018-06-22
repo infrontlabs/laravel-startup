@@ -17,10 +17,17 @@ class AccountMiddleware
      */
     public function handle($request, Closure $next)
     {
+        /**
+         * Resolve account ID either by URL param or session
+         */
         $account = $this->resolveAccount(
             $request->account ?: session()->get('account')
         );
 
+        /**
+         * If no account was found or the authenticated user is not
+         * a member of the account, then none shall pass.
+         */
         if (!$account || !auth()->user()->isMemberOf($account)) {
             $this->registerAccount(auth()->user()->accounts()->first());
             return redirect()->route('accounts')->withError('There was a problem switching account. Please try again.');
