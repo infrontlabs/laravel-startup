@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Events\Account\TeamInviteCreated;
-use App\Http\Controllers\Controller;
 use App\Account\Models\TeamInvite;
 use App\Account\Requests\TeamInviteRequest;
+use App\Events\Account\TeamInviteCreated;
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -20,6 +21,8 @@ class TeamController extends Controller
     public function invite(TeamInviteRequest $request)
     {
 
+        $this->authorize('teams.users.manage');
+
         $invite = $request->account()->invites()->save(new TeamInvite($request->only(['email', 'role'])));
 
         event(new TeamInviteCreated($invite));
@@ -29,6 +32,9 @@ class TeamController extends Controller
 
     public function resendInvite(TeamInvite $teamInvite, Request $request)
     {
+
+        $this->authorize('teams.users.manage');
+
         $invite = $request->account()->invites()->save(new TeamInvite([
             'email' => $teamInvite->email,
             'role' => $teamInvite->role,
@@ -39,5 +45,14 @@ class TeamController extends Controller
         event(new TeamInviteCreated($invite));
 
         return redirect()->route('account.team');
+    }
+
+    public function delete(Request $request, User $user)
+    {
+        $this->authorize('teams.users.manage');
+
+        $request->account()->members()->detach($user->id);
+
+        return back()->withSuccess('Member has been removed from the team.');
     }
 }

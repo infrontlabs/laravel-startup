@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('account', app(Manager::class)->getAccount());
         });
 
+        View::composer('account.team.index', function ($view) {
+            $canmanageteams = auth()->user()->can('teams.users.manage');
+            $view->with('canmanageteams', $canmanageteams);
+        });
+
         Request::macro('account', function () {
             return app(Manager::class)->getAccount();
         });

@@ -12,6 +12,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,17 @@
                     <td>{{ $user->full_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ role($user->pivot->role) }}</td>
+                    <td>
+                        @if($canmanageteams && $user->pivot->role !== 'owner')
+
+                        <form action="{{ route('account.team.delete', $user) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

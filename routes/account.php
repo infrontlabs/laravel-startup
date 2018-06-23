@@ -47,7 +47,7 @@ Route::group(['middleware' => 'subscription.active'], function () {
     Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
     Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
     Route::post('/account/team', 'Account\TeamController@invite')->name('account.team.invite');
-
+    Route::delete('/account/team/{user}', 'Account\TeamController@delete')->name('account.team.delete');
 });
 
 Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
