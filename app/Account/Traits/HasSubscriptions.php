@@ -54,4 +54,10 @@ trait HasSubscriptions
     {
         return $this->subscription('main')->trial_ends_at;
     }
+
+    public function cancelSubscription()
+    {
+        return $this->subscription('main')->cancel();
+
+    }
 }

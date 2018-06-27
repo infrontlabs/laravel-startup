@@ -14,7 +14,7 @@ class SubscriptionCancelController extends Controller
 
     public function process(Request $request)
     {
-        $request->account()->subscription('main')->cancel();
+        $request->account()->cancelSubscription();
 
         return redirect()->route('account.index')->withSuccess('Your subscription has been cancelled.');
     }

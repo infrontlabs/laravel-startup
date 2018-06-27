@@ -29,7 +29,6 @@ Route::group(['middleware' => 'subscription.notcancelled'], function () {
     Route::post('/account/subscription/cancel', 'Account\SubscriptionCancelController@process')->name('account.subscription.cancel.process');
     Route::get('/account/subscription/swap', 'Account\SubscriptionSwapController@index')->name('account.subscription.swap');
     Route::post('/account/subscription/swap', 'Account\SubscriptionSwapController@store')->name('account.subscription.swap.store');
-
 });
 
 Route::group(['middleware' => 'subscription.cancelled'], function () {
