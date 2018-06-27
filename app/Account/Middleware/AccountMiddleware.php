@@ -2,7 +2,6 @@
 
 namespace App\Account\Middleware;
 
-use App\Account\Manager;
 use App\Account\Models\Account;
 use Closure;
 
@@ -17,40 +16,37 @@ class AccountMiddleware
      */
     public function handle($request, Closure $next)
     {
-        /**
-         * Resolve account ID either by URL param or session
-         */
-        $account = $this->resolveAccount(
-            $request->account ?: session()->get('account')
-        );
 
-        /**
-         * If no account was found or the authenticated user is not
-         * a member of the account, then none shall pass.
-         */
-        if (!$account || !auth()->user()->isMemberOf($account)) {
-            $this->registerAccount(auth()->user()->accounts()->first());
-            return redirect()->route('accounts')->withError('There was a problem switching account. Please try again.');
+        if (!auth()->check()) {
+            return redirect()->route('login');
         }
 
-        $this->registerAccount($account);
+        $account = $this->resolveAccount(
+            $request->account ?: optional($request->user()->currentAccount)->uuid
+        );
+
+        // validate ownership/membership
+        if (!$request->user()->accountIsValid($account)) {
+            $account = $request->user()->firstOwnedAccount();
+        }
+
+        // somehow an account was not created for this user. Highly unlikely but want to be sure it's captured here.
+        if (!$account) {
+            return redirect()->route('home')->withError('Sorry, there was a problem accessing your account.');
+        }
+
+        $request->user()->setCurrentAccount($account);
 
         return $next($request);
     }
 
     public function registerAccount(Account $account)
     {
-        app(Manager::class)->setAccount($account);
+        auth()->user()->setCurrentAccount($account);
     }
 
     public function resolveAccount($id)
     {
-        $account = Account::where('uuid', $id)->first();
-
-        if (!$account && auth()->user()) {
-            $account = auth()->user()->accounts()->first();
-        }
-
-        return $account;
+        return Account::where('uuid', $id)->first();
     }
 }

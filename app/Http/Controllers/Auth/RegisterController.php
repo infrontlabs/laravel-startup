@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Account\Manager;
-use App\Account\Models\Account;
 use App\Events\Auth\UserSignedUp;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -77,11 +75,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $account = $user->accounts()->save(Account::create([
+        $account = $user->createAccount([
             'name' => $user->full_name,
-        ]));
+        ]);
 
-        app(Manager::class)->setAccount($account);
+        $user->setCurrentAccount($account);
 
         return $user;
     }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Account\Models\Account;
+use App\Account\Traits\HasAccounts;
 use App\Traits\HasConfirmationTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +10,7 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens, HasConfirmationTokens;
+    use Notifiable, HasApiTokens, HasConfirmationTokens, HasAccounts;
 
     protected $guarded = [];
 
@@ -22,16 +22,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function accounts()
-    {
-        return $this->belongsToMany(Account::class)->withPivot('role');
-    }
-
-    public function isMemberOf(Account $account)
-    {
-        return $this->accounts->contains('id', $account->id);
-    }
 
     public function getFullNameAttribute()
     {

@@ -4,7 +4,6 @@ namespace App\Account\Models;
 
 use App\Account\Traits\HasSubscriptions;
 use App\Account\Traits\HasTeam;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Cashier\Billable;
 use Ramsey\Uuid\Uuid;
@@ -31,15 +30,5 @@ class Account extends Model
     protected $casts = [
         'trial_ends_at' => 'date',
     ];
-
-    public function getOwnerAttribute()
-    {
-        return $this->owners()->first();
-    }
-
-    public function owners()
-    {
-        return $this->belongsToMany(User::class)->withPivot('role')->where('role', 'owner');
-    }
 
 }

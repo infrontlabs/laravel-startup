@@ -2,7 +2,6 @@
 
 namespace App\Account\Traits;
 
-use App\Account\Manager;
 use App\Account\Scopes\AccountScope;
 
 trait ForAccounts
@@ -12,9 +11,7 @@ trait ForAccounts
     {
         parent::boot();
 
-        $manager = app(Manager::class);
-
-        static::addGlobalScope(new AccountScope($manager));
+        static::addGlobalScope(new AccountScope(app('currentAccount')));
     }
 
 }

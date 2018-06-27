@@ -2,8 +2,6 @@
 
 /** Backend Account Routes */
 
-Route::get('/orgs/{account}', 'Account\AccountRedirectController')->name('org.switch');
-
 Route::get('/account', 'Account\ProfileController@index')->name('account.index');
 Route::post('/account', 'Account\ProfileController@store')->name('account.profile.store');
 
@@ -14,6 +12,7 @@ Route::get('/account/team/invite/resend/{teamInvite}', 'Account\TeamController@r
 
 Route::get('/accounts', 'Account\ManageAccountsController@index')->name('accounts');
 Route::post('/accounts', 'Account\ManageAccountsController@store')->name('accounts.store');
+Route::get('/accounts/{account}', 'Account\AccountRedirectController')->name('accounts.switch');
 
 Route::get('/account/password', 'Account\PasswordController@index')->name('account.password');
 Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');

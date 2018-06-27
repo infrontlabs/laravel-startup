@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->boolean('email_confirmed')->default(false);
 
+            $table->unsignedInteger('current_account_id')->nullable();
+
             $table->timestamps();
         });
     }

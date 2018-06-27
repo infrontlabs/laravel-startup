@@ -10,11 +10,22 @@
             Switch Accounts
         @endslot
 
-        <p>Multiple accounts allow you to manage unique teams and billing plans.</p>
-
-
                 <div class="form-group">
                     <ul class="list-group">
+                        @foreach($ownedAccounts as $a)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{$a->name}} ({{$a->id}}) - Account owner {{$a->owner->full_name}}
+                                @if($a->isSubscribed())
+                                - Subscribed to {{plan($a->currentPlan())}}
+                                @endif
+
+                                @if($account->id === $a->id)
+                                    <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
+                                @else
+                                    <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
+                                @endif
+                            </li>
+                        @endforeach
                         @foreach($accounts as $a)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{$a->name}} ({{$a->id}}) - Account owner {{$a->owner->full_name}}
@@ -25,7 +36,7 @@
                                 @if($account->id === $a->id)
                                     <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
                                 @else
-                                    <a href="{{ route('org.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
+                                    <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
                                 @endif
                             </li>
                         @endforeach

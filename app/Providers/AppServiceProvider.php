@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Account\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -16,21 +15,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton(Manager::class, function () {
-            return new Manager;
+        $this->app->singleton('currentAccount', function () {
+            return optional(auth()->user())->currentAccount;
         });
 
         View::composer('*', function ($view) {
-            $view->with('account', app(Manager::class)->getAccount());
+            $view->with('account', optional(auth()->user())->currentAccount);
         });
 
         View::composer('account.team.index', function ($view) {
-            $canmanageteams = auth()->user()->can('teams.users.manage');
+            $canmanageteams = optional(auth()->user())->can('teams.users.manage');
             $view->with('canmanageteams', $canmanageteams);
         });
 
         Request::macro('account', function () {
-            return app(Manager::class)->getAccount();
+            return optional(auth()->user())->currentAccount;
         });
     }
 

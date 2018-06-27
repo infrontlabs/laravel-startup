@@ -17,6 +17,7 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->string('uuid')->index();
             $table->string('name');
+            $table->unsignedInteger('owner_id');
 
             // Stripe
             $table->string('stripe_id')->nullable();
@@ -27,8 +28,6 @@ class CreateAccountsTable extends Migration
             $table->timestamps();
         });
 
-        // DB::statement("ALTER TABLE accounts AUTO_INCREMENT = 10000");
-
     }
 
     /**
@@ -38,7 +37,7 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orgs');
+        Schema::dropIfExists('accounts');
 
     }
 }
