@@ -14,11 +14,11 @@ class AccountScope implements Scope
 
     public function __construct(Account $account)
     {
-        $this->account = $account->id;
+        $this->account = $account;
     }
 
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where($this->account->getForeignKey(), '=', $this->account->getPrimaryKey());
+        return $builder->where($this->account->getForeignKey(), '=', $this->account->getKey());
     }
 }

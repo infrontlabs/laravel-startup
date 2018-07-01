@@ -4,13 +4,11 @@ namespace App\Account\Traits;
 
 use App\Account\Scopes\AccountScope;
 
-trait ForAccounts
+trait ScopedForAccounts
 {
 
-    public static function boot()
+    public static function bootScopedForAccounts()
     {
-        parent::boot();
-
         static::addGlobalScope(new AccountScope(app('currentAccount')));
     }
 
