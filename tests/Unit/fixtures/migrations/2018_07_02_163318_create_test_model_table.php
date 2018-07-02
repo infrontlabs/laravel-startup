@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectTestTable extends Migration
+class CreateTestModelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProjectTestTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('test_table_for_account_scoping', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('name');
 
             $table->unsignedInteger('account_id');
-
         });
     }
 
@@ -30,6 +28,6 @@ class CreateProjectTestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('test_table_for_account_scoping');
     }
 }

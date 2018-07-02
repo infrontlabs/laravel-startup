@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
-use Tests\Unit\Fixtures\Project;
+use Tests\Unit\Fixtures\TestModel;
 
 class AccountScopeTest extends TestCase
 {
@@ -19,7 +19,7 @@ class AccountScopeTest extends TestCase
      */
     public function models_with_account_scope_trait_are_automatically_constrained_by_current_account()
     {
-        $this->createProjectsMigration();
+        $this->createTestModelMigration();
         $user = factory(User::class)->create(['id' => 1]);
 
         $account1 = factory(Account::class)->create([
@@ -34,17 +34,17 @@ class AccountScopeTest extends TestCase
 
         $this->actingAs($user);
 
-        $project1 = Project::create(['name' => 'Project 1', 'account_id' => $account1->id]);
-        $project2 = Project::create(['name' => 'Project 2', 'account_id' => $account2->id]);
+        $test1 = TestModel::create(['account_id' => $account1->id]);
+        $test2 = TestModel::create(['account_id' => $account2->id]);
 
-        $allProjects = Project::all();
+        $allTests = TestModel::all();
 
-        $this->assertEquals(1, $allProjects->count());
-        $this->assertEquals($account1->id, $allProjects[0]->account_id);
+        $this->assertEquals(1, $allTests->count());
+        $this->assertEquals($account1->id, $allTests[0]->account_id);
 
     }
 
-    protected function createProjectsMigration()
+    protected function createTestModelMigration()
     {
         $exitCode = Artisan::call('migrate', [
             '--path' => '/tests/Unit/fixtures/migrations/',
