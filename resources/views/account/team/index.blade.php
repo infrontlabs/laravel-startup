@@ -16,6 +16,14 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>{{ $account->owner->full_name }}</td>
+                    <td>{{ $account->owner->email }}</td>
+                    <td>Owner</td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
                 @foreach($members as $user)
                 <tr>
                     <td>{{ $user->full_name }}</td>

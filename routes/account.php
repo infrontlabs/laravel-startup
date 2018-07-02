@@ -39,6 +39,8 @@ Route::group(['middleware' => 'subscription.cancelled'], function () {
 Route::group(['middleware' => 'subscription.customer'], function () {
     Route::get('/account/subscription/card', 'Account\SubscriptionCardController@index')->name('account.subscription.card');
     Route::post('/account/subscription/card', 'Account\SubscriptionCardController@store')->name('account.subscription.card.store');
+    Route::get('/account/subscription/invoices', 'Account\SubscriptionInvoicesController@index')->name('account.subscription.invoices');
+    Route::get('/account/subscription/invoices/{invoice}', 'Account\SubscriptionInvoicesController@download')->name('account.subscription.invoices.download');
 });
 
 Route::group(['middleware' => 'subscription.active'], function () {

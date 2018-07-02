@@ -56,7 +56,6 @@
             </li>
             @endsubscriptionnotcancelled
 
-
             @subscriptioncancelled
             <li class="nav-item">
                 <a class="nav-link {{ link_is_active('account/subscription/resume') }}" href="{{ route('account.subscription.resume') }}">
@@ -64,11 +63,19 @@
                 </a>
             </li>
             @endsubscriptioncancelled
+
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/card') }}" href="{{ route('account.subscription.card') }}">
+                <a class="nav-link {{ link_is_active(route('account.subscription.card')) }}" href="{{ route('account.subscription.card') }}">
                     Update card
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ link_is_active('account/subscription/invoices') }}" href="{{ route('account.subscription.invoices') }}">
+                    Invoices
+                </a>
+            </li>
+
     @endsubscribed
 
     @notsubscribed
