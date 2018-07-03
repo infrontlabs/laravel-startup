@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Account\Models\Account;
+use Startup\Models\Account;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;

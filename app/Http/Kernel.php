@@ -37,8 +37,8 @@ class Kernel extends HttpKernel
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
         ],
 
-        'account' => [
-            \App\Account\Middleware\AccountMiddleware::class,
+        'tenent' => [
+            \Startup\Middleware\TenentMiddleware::class,
         ],
 
         'api' => [
@@ -64,12 +64,12 @@ class Kernel extends HttpKernel
         'auth.register' => \App\Http\Middleware\RedirectToRegistrationIfNotAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'subscription.active' => \App\Http\Middleware\Account\Subscription\RedirectIfNotActive::class,
-        'subscription.notcancelled' => \App\Http\Middleware\Account\Subscription\RedirectIfCancelled::class,
-        'subscription.cancelled' => \App\Http\Middleware\Account\Subscription\RedirectIfNotCancelled::class,
-        'subscription.notcustomer' => \App\Http\Middleware\Account\Subscription\RedirectIfCustomer::class,
-        'subscription.customer' => \App\Http\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
-        'subscription.inactive' => \App\Http\Middleware\Account\Subscription\RedirectIfSubscriptionActive::class,
-        'email.confirmed' => \App\Http\Middleware\Account\RedirectIfEmailNotConfirmed::class,
+        'subscription.active' => \Startup\Middleware\Account\Subscription\RedirectIfNotActive::class,
+        'subscription.notcancelled' => \Startup\Middleware\Account\Subscription\RedirectIfCancelled::class,
+        'subscription.cancelled' => \Startup\Middleware\Account\Subscription\RedirectIfNotCancelled::class,
+        'subscription.notcustomer' => \Startup\Middleware\Account\Subscription\RedirectIfCustomer::class,
+        'subscription.customer' => \Startup\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
+        'subscription.inactive' => \Startup\Middleware\Account\Subscription\RedirectIfSubscriptionActive::class,
+        'email.confirmed' => \Startup\Middleware\Account\RedirectIfEmailNotConfirmed::class,
     ];
 }

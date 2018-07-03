@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\Account\Models\Account::class,
+        'model' => Startup\Models\Account::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

@@ -53,6 +53,7 @@ class AccountSubscriptionMiddlewareTest extends TestCase
      */
     public function middleware_prevents_dashboard_access_without_subscription()
     {
+        $this->withoutExceptionHandling();
         $owner = factory(User::class)->create();
         $account = $owner->createAccount(['name' => 'Test Account']);
         $owner->setCurrentAccount($account);

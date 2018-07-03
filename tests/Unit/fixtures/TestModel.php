@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Fixtures;
 
-use App\Account\Models\Account;
-use App\Account\Traits\ScopedForAccounts;
+use Startup\Models\Account;
+use Startup\Traits\ScopedForAccounts;
 use Illuminate\Database\Eloquent\Model;
 
 class TestModel extends Model

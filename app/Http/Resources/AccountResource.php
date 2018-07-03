@@ -15,7 +15,7 @@ class AccountResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->uuid,
+            'id' => $this->hash_id,
             'name' => $this->name,
             'card_brand' => $this->card_brand,
             'card_last_four' => $this->card_last_four,

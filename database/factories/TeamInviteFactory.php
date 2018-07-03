@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
  */
 
-$factory->define(App\Account\Models\TeamInvite::class, function (Faker $faker) {
+$factory->define(Startup\Models\TeamInvite::class, function (Faker $faker) {
     return [
         'email' => $faker->email,
         'account_id' => 1,

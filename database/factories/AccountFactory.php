@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
  */
 
-$factory->define(App\Account\Models\Account::class, function (Faker $faker) {
+$factory->define(Startup\Models\Account::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
     ];

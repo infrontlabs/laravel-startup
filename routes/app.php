@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/app', 'Account\DashboardController@index')->name('app.dashboard');
+Route::get('/app', 'DashboardController@index')->name('app.dashboard');
