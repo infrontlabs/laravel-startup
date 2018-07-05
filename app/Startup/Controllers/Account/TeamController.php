@@ -2,12 +2,12 @@
 
 namespace Startup\Controllers\Account;
 
-use Startup\Models\TeamInvite;
-use Startup\Requests\TeamInviteRequest;
 use App\Events\Account\TeamInviteCreated;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Startup\Models\TeamInvite;
+use Startup\Requests\Account\TeamInviteRequest;
 
 class TeamController extends Controller
 {

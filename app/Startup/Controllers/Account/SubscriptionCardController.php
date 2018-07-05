@@ -3,7 +3,7 @@
 namespace Startup\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Account\UpdateCardRequest;
+use Startup\Requests\Account\UpdateCardRequest;
 
 class SubscriptionCardController extends Controller
 {

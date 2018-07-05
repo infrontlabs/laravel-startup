@@ -3,10 +3,10 @@
 namespace Startup\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Account\PasswordChangeRequest;
 use App\Mail\Account\PasswordChanged;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Startup\Requests\Account\PasswordChangeRequest;
 
 class PasswordController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Account;
+namespace Startup\Requests\Account;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PasswordChangeRequest extends FormRequest
+class CreateAccountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class PasswordChangeRequest extends FormRequest
     public function rules()
     {
         return [
-            'password_current' => ['required', new \App\Rules\CurrentPassword],
-            'password' => 'required|string|min:6|confirmed',
+            'account_name' => 'required|max:255',
         ];
     }
 }

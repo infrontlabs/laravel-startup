@@ -24,7 +24,7 @@ class Account extends Model
 
     public function getHashIdAttribute()
     {
-        return app('hashid')->encode($this->id); // VolejRejNm
+        return app('hashid')->encode($this->id);
     }
 
 }

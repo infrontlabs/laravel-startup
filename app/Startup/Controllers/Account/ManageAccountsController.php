@@ -2,10 +2,10 @@
 
 namespace Startup\Controllers\Account;
 
-use Startup\Models\Account;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Account\CreateAccountRequest;
 use Illuminate\Http\Request;
+use Startup\Models\Account;
+use Startup\Requests\Account\CreateAccountRequest;
 
 class ManageAccountsController extends Controller
 {

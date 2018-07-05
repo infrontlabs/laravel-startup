@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Account;
+namespace Startup\Requests\Account;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateAccountRequest extends FormRequest
+class ProfileUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class CreateAccountRequest extends FormRequest
     public function rules()
     {
         return [
-            'account_name' => 'required|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->id(),
         ];
     }
 }
