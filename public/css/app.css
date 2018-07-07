@@ -10411,6 +10411,11 @@ a.text-dark:focus {
   }
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .nav-heading {
   background-color: transparent;
   text-transform: uppercase;
@@ -10430,6 +10435,30 @@ a.text-dark:focus {
 
 .nav-link.active {
   color: #007bff;
+}
+
+input::-webkit-input-placeholder {
+  color: #aab7c4 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input:-ms-input-placeholder {
+  color: #aab7c4 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input::-ms-input-placeholder {
+  color: #aab7c4 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input::placeholder {
+  color: #aab7c4 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar-startup {
@@ -10479,6 +10508,10 @@ a.text-dark:focus {
 
 .dropdown-menu a:hover {
   background-color: #60686f;
+  color: white;
+}
+
+.btn-primary {
   color: white;
 }
 

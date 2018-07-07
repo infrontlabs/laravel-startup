@@ -1,11 +1,11 @@
-@extends('layouts.account')
+ @extends('layouts.account')
 
 
 
 @section('content')
 
     @subscriptionontrial
-        <div class="alert alert-warning">Your free trial ends in {{$account->trialEndsAt()->diffForHumans()}}</div>
+        <div class="alert alert-warning">Your free trial ends in {{$account->trialEndsAt()->toFormattedDateString()}}</div>
     @endsubscriptionontrial
 
 

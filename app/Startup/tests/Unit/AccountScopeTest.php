@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit;
+namespace Startup\Tests\Unit;
 
-use Startup\Models\Account;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Startup\Models\Account;
+use Startup\Tests\Unit\Fixtures\TestModel;
 use Tests\TestCase;
-use Tests\Unit\Fixtures\TestModel;
 
 class AccountScopeTest extends TestCase
 {
@@ -47,7 +47,7 @@ class AccountScopeTest extends TestCase
     protected function createTestModelMigration()
     {
         $exitCode = Artisan::call('migrate', [
-            '--path' => '/tests/Unit/fixtures/migrations/',
+            '--path' => '/app/Startup/tests/Unit/fixtures/migrations/',
         ]);
 
     }

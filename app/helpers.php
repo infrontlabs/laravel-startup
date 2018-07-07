@@ -2,7 +2,7 @@
 
 function link_is_active($path)
 {
-    return request()->is($path) ? 'active' : '';
+    return request()->is(trim($path, '/')) ? 'active' : '';
 }
 
 function role($id)

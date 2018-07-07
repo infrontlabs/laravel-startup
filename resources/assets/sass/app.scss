@@ -8,6 +8,12 @@
 @import "~bootstrap/scss/bootstrap";
 @import "text";
 
+input::placeholder {
+    color: #aab7c4 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .navbar-startup {
     padding: 0;
     line-height: 35px;
@@ -55,4 +61,8 @@
         background-color: darken($secondary, 5%);
         color: white;
     }
+}
+
+.btn-primary {
+    color: white;
 }

@@ -28,6 +28,11 @@
             </div>
 
             <div class="form-group">
+                <label for="">Billing name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Jane Doe" />
+            </div>
+
+            <div class="form-group">
                 <label for="card-element">Enter Payment</label>
                 <div id="card-element"></div>
             </div>

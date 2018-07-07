@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit\Fixtures;
+namespace Startup\Tests\Unit\Fixtures;
 
+use Illuminate\Database\Eloquent\Model;
 use Startup\Models\Account;
 use Startup\Traits\ScopedForAccounts;
-use Illuminate\Database\Eloquent\Model;
 
 class TestModel extends Model
 {

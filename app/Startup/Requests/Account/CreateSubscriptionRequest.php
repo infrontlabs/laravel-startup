@@ -4,7 +4,7 @@ namespace Startup\Requests\Account;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCardRequest extends FormRequest
+class CreateSubscriptionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UpdateCardRequest extends FormRequest
     public function rules()
     {
         return [
-            'stripe_token' => 'required',
             'billing_name' => 'required|max:255',
+            'stripe_token' => 'required|max:255',
         ];
     }
 }

@@ -19,6 +19,7 @@ class CreateAccountsTable extends Migration
             $table->unsignedInteger('owner_id');
 
             // Stripe
+            $table->string('billing_name')->nullable();
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();

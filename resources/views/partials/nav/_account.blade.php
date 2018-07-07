@@ -4,33 +4,33 @@
     <h3 class="nav-heading">Personal</h3>
     <ul class="nav flex-column nav-pills mb-4">
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account') }}" href="{{ route('account.index') }}">
-            Profile
-        </a>
+            @component('components.routenav', ['route' => 'account.index'])
+                Profile
+            @endcomponent
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/password') }}" href="{{ route('account.password') }}">
-            Change Password
-        </a>
+            @component('components.routenav', ['route' => 'account.password'])
+                Chnage password
+            @endcomponent
         </li>
     </ul>
 
     <h3 class="nav-heading">Account</h3>
     <ul class="nav flex-column nav-pills mb-4">
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/settings') }}" href="{{ route('account.settings') }}">
-            Settings
-        </a>
+            @component('components.routenav', ['route' => 'account.settings'])
+                Settings
+            @endcomponent
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ link_is_active('account/team') }}" href="{{ route('account.team') }}">
-            Manage Users
-        </a>
+            @component('components.routenav', ['route' => 'account.team'])
+                Manage Users
+            @endcomponent
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ link_is_active('account/user/invites') }}" href="{{ route('account.user.invites') }}">
+            @component('components.routenav', ['route' => 'account.user.invites'])
                 Invites
-            </a>
+            @endcomponent
         </li>
     </ul>
 
@@ -40,49 +40,49 @@
     @subscribed
             @subscriptionnotcancelled
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription') }}" href="{{ route('account.subscription.details') }}">
+                @component('components.routenav', ['route' => 'account.subscription.details'])
                     Subscription Details
-                </a>
+                @endcomponent
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/cancel') }}" href="{{ route('account.subscription.cancel') }}">
+                @component('components.routenav', ['route' => 'account.subscription.cancel'])
                     Cancel subscription
-                </a>
+                @endcomponent
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/swap') }}" href="{{ route('account.subscription.swap') }}">
+                @component('components.routenav', ['route' => 'account.subscription.swap'])
                     Change plan
-                </a>
+                @endcomponent
             </li>
             @endsubscriptionnotcancelled
 
             @subscriptioncancelled
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/resume') }}" href="{{ route('account.subscription.resume') }}">
+                @component('components.routenav', ['route' => 'account.subscription.resume'])
                     Resume subscription
-                </a>
+                @endcomponent
             </li>
             @endsubscriptioncancelled
 
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active(route('account.subscription.card')) }}" href="{{ route('account.subscription.card') }}">
+                @component('components.routenav', ['route' => 'account.subscription.card'])
                     Update card
-                </a>
+                @endcomponent
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ link_is_active('account/subscription/invoices') }}" href="{{ route('account.subscription.invoices') }}">
+                @component('components.routenav', ['route' => 'account.subscription.invoices'])
                     Invoices
-                </a>
+                @endcomponent
             </li>
 
     @endsubscribed
 
     @notsubscribed
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('plans.index') }}">
+                @component('components.routenav', ['route' => 'plans.index'])
                     Choose a plan!
-                </a>
+                @endcomponent
             </li>
 
     @endnotsubscribed

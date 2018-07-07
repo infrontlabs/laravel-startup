@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-
-    <!-- Styles -->
     <style>
         html,
         body {
@@ -25,7 +23,22 @@
         }
 
         .full-height {
+            background: url(/img/backgrounds/josh-calabrese-112481-unsplash.jpg) no-repeat center center fixed;
+            background-size: cover;
             height: 100vh;
+        }
+
+        .full-height footer {
+            color: #56d4d9;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            text-align: center;
+        }
+
+        .full-height footer a {
+            color: #a0d7d9;
         }
 
         .flex-center {
@@ -69,7 +82,7 @@
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center position-ref full-height" style="flex-direction: column;">
         @if (Route::has('login'))
         <div class="top-right links">
             <a href="{{ route('plans.index') }}">{{ __('Plans') }}</a>
@@ -107,6 +120,12 @@
 
 
         </div>
+        <footer>
+            Photo by
+            <a href="https://unsplash.com/photos/Ca8r0PSWg9Q?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">
+                Josh Calabrese
+            </a> on <a href="https://unsplash.com/search/photos/business?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>
+        </footer>
     </div>
 </body>
 

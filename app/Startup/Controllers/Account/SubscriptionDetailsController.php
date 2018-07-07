@@ -10,10 +10,12 @@ class SubscriptionDetailsController extends Controller
     public function index()
     {
         $account = request()->account();
-        $sub = $account->subscription('main')->asStripeSubscription();
-        $nextBillDate = Carbon::createFromTimeStamp($sub->current_period_end)->format('F jS, Y');
+        $subscription = $account->subscription('main');
+        $stripe = $subscription->asStripeSubscription();
+        $nextBillDate = Carbon::createFromTimeStamp($stripe->current_period_end)->format('F jS, Y');
         $details = [
-            'plan' => $sub->plan,
+            'subscription' => $subscription,
+            'plan' => $stripe->plan,
             'nextBillDate' => $nextBillDate,
             'paymentMethod' => $account->card_brand . " ****" . $account->card_last_four,
         ];
