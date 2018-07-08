@@ -17,7 +17,7 @@ class SubscriptionDetailsController extends Controller
             'subscription' => $subscription,
             'plan' => $stripe->plan,
             'nextBillDate' => $nextBillDate,
-            'paymentMethod' => $account->card_brand . " ****" . $account->card_last_four,
+            'paymentMethod' => $account->card_brand . " ending in " . $account->card_last_four,
         ];
         return view('startup::account.subscription.details', compact('details'));
     }

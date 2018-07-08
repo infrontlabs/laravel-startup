@@ -3,7 +3,19 @@
 @section('content')
     @component('components.card')
         @slot('title')
-            Update Card
+            Current payment method
+        @endslot
+
+        @foreach ($cards as $card)
+                {{$card->brand}} ending in {{$card->last4}}
+        @endforeach
+
+
+    @endcomponent
+
+    @component('components.card')
+        @slot('title')
+            Add a new card
         @endslot
 
         <form id="payment-form" action="{{ route('account.subscription.card.store') }}" method="post">
@@ -12,7 +24,7 @@
 
             <div class="form-group">
                 <label for="">Card holder name</label>
-                <input type="text" autocomplete='cc-name' name="billing_name" id="name" class="form-control{{ $errors->has('billing_name') ? ' is-invalid' : '' }}" placeholder="Jane Doe" value="{{ old('billing_name', $account->billing_name) }}" />
+                <input type="text" autocomplete='cc-name' name="billing_name" id="name" class="form-control{{ $errors->has('billing_name') ? ' is-invalid' : '' }}" placeholder="Jane Doe" value="{{ old('billing_name') }}" />
                 <div class="text-danger">
                     {{ $errors->first('billing_name') }}
                 </div>
@@ -28,7 +40,6 @@
 
                 <button type="submit" class="btn btn-dark">Update card</button>
             </form>
-
     @endcomponent
 @endsection
 

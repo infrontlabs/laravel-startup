@@ -3,18 +3,23 @@
 namespace Startup\Controllers\Account;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Startup\Requests\Account\UpdateCardRequest;
 
 class SubscriptionCardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('startup::account.subscription.card');
+        $cards = $request->account()->cards();
+
+        return view('startup::account.subscription.card', compact('cards'));
     }
 
     public function store(UpdateCardRequest $request)
     {
         try {
+            $request->account()->deleteCards();
+
             $request->account()->updateCard(
                 $request->get('stripe_token')
             );
@@ -24,6 +29,6 @@ class SubscriptionCardController extends Controller
             return back()->withError($e->getMessage());
         }
 
-        return redirect()->route('account.index')->withSuccess('Your card has been updated.');
+        return redirect()->route('account.subscription.card')->withSuccess('Your card has been updated.');
     }
 }
