@@ -2,8 +2,8 @@
 
 namespace Startup\Middleware\Account\Subscription;
 
-use Startup\Models\Account;
 use Closure;
+use Startup\Models\Account;
 
 class RedirectIfSubscriptionActive
 {
@@ -17,7 +17,7 @@ class RedirectIfSubscriptionActive
     public function handle($request, Closure $next)
     {
         if ($request->user() && $request->account() && $request->account()->isSubscribed()) {
-            return redirect()->route('account.index')->withError('You already have a subscription');
+            return redirect()->route('account.index')->withError(__('You already have a subscription'));
         }
 
         return $next($request);

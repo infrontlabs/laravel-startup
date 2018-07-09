@@ -7,7 +7,7 @@
         @endslot
 
         @foreach ($cards as $card)
-                {{$card->brand}} ending in {{$card->last4}}
+                {{$card->name}}<br>{{$card->brand}} ending in {{$card->last4}}
         @endforeach
 
 
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-                    <label for="">Card number</label>
+                <label for="card-element">Card Number</label>
                 <div id="card-element" class="form-group"></div>
             </div>
                 <div class="text-danger">

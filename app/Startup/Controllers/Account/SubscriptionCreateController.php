@@ -3,18 +3,10 @@
 namespace Startup\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Startup\Requests\Account\CreateSubscriptionRequest;
 
 class SubscriptionCreateController extends Controller
 {
-    public function index(Request $request)
-    {
-        $plans = collect(config('subscription.plans'))->where('active', true);
-
-        return view('startup::account.subscribe.index', compact('plans'));
-    }
-
     public function process(CreateSubscriptionRequest $request)
     {
         $plans = collect(config('subscription.plans'))->where('active', true);

@@ -34,8 +34,10 @@
                 </ul>
             </div>
 
+            <p><strong>Payment method</strong></p>
+
             <div class="form-group">
-                <label for="">Billing name</label>
+                <label for="">Card holder name</label>
                 <input type="text" name="billing_name" id="name" class="form-control{{ $errors->has('billing_name') ? ' is-invalid' : '' }}" placeholder="Jane Doe" value="{{ old('billing_name', auth()->user()->full_name) }}" />
                 <div class="text-danger">
                     {{ $errors->first('billing_name') }}
@@ -43,7 +45,7 @@
             </div>
 
             <div class="form-group">
-                <label for="card-element">Enter Payment</label>
+                <label for="card-element">Card Number</label>
                 <div id="card-element"></div>
             </div>
 

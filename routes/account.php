@@ -50,5 +50,6 @@ Route::group(['middleware' => 'subscription.active'], function () {
     Route::delete('/account/team/{user}', 'Account\TeamController@delete')->name('account.team.delete');
 });
 
-Route::get('/account/subscribe', 'Account\SubscriptionCreateController@index')->name('account.subscribe');
-Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
+Route::group(['middleware' => 'subscription.inactive'], function () {
+    Route::post('/account/subscribe', 'Account\SubscriptionCreateController@process')->name('account.subscribe.process');
+});
