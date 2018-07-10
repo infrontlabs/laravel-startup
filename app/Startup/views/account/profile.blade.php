@@ -40,7 +40,7 @@
 
                             @emailnotconfirmed
                                 <i data-toggle="tooltip" data-placement="left" title="Email address has not been confirmed." class="fas fa-exclamation-triangle text-danger"></i>
-                                &nbsp;Email unconfirmed. &nbsp; <a href="{{ route('account.email.resend') }}">Resend</a>
+                                &nbsp;Email unconfirmed. &nbsp; <a href="{{ route('auth.email.resend') }}">Resend</a>
                             @endemailnotconfirmed
 
                             @emailconfirmed

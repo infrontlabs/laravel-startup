@@ -103,5 +103,4 @@ return [
         'length' => 255,
         'expiry' => 60, //minutes
     ],
-
 ];

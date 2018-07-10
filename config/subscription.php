@@ -12,6 +12,7 @@ return [
             'interval' => 'Monthly',
             'active' => true,
             'has_free_trial' => true,
+            'description' => 'Some description',
             'features' => [
                 'Cool feature',
                 'Another cool feature',
@@ -27,6 +28,7 @@ return [
             'interval' => 'Yearly',
             'active' => true,
             'has_free_trial' => true,
+            'description' => 'Some description',
             'features' => [
                 'Cool feature',
                 'Another cool feature',

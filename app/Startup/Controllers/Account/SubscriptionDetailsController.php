@@ -12,7 +12,13 @@ class SubscriptionDetailsController extends Controller
         $account = request()->account();
         $subscription = $account->subscription('main');
         $stripe = $subscription->asStripeSubscription();
-        $nextBillDate = Carbon::createFromTimeStamp($stripe->current_period_end)->format('F jS, Y');
+
+        // $invoices = $account->upcomingInvoice();
+
+        // dd($invoices);
+
+        // dd($stripe);
+        $nextBillDate = Carbon::createFromTimeStamp($stripe->current_period_end)->toFormattedDateString();
         $details = [
             'subscription' => $subscription,
             'plan' => $stripe->plan,

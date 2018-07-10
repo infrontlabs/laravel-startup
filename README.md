@@ -9,6 +9,7 @@ A Laravel based multi-tenent platform for your next SaaS.
 - Manage users and roles
 - API Authentication for your mobile app or SPA
 - Stripe Webhook Ready
+- Well tested (currently 29 tests and 50 assertions)!
 
 ## Easy environment bootstrap with Lando
 

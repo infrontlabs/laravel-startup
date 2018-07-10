@@ -2,6 +2,11 @@
 
 @section('base.content')
 <div class="container">
+    @if(session('warning'))
+    <div class="alert alert-warning" role="alert">
+        {!! session('warning') !!}
+    </div>
+    @endif
       <div class="card-deck mb-3 text-center">
 
 
@@ -12,6 +17,7 @@
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{ $plan['price'] }}</h1>
+            <div>{{ $plan['description'] }}</div>
             <ul class="list-unstyled mt-3 mb-4">
                 @foreach($plan['features'] as $feature)
                 <li>{{ $feature }}</li>

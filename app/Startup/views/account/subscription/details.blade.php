@@ -5,7 +5,7 @@
 @section('content')
 
     @subscriptionontrial
-        <div class="alert alert-warning">Your free trial ends in {{$account->trialEndsAt()->toFormattedDateString()}}</div>
+        <div class="alert alert-warning">Your free trial ends {{$account->trialEndsAt()->toFormattedDateString()}}</div>
     @endsubscriptionontrial
 
 
@@ -17,7 +17,7 @@
         <table class="table table-borderless mb-0">
         <tbody>
             <tr>
-                <th scope="row">Plan</th>
+                <th scope="row" width="250">Plan</th>
                 <td>{{$details['plan']->nickname}}</td>
             </tr>
             <tr>
@@ -26,7 +26,11 @@
             </tr>
             <tr>
                 <th scope="row">Plan price</th>
-                <td>${{$details['plan']->amount/100}}</td>
+                <td>${{$details['plan']->amount/100}} per license/user</td>
+            </tr>
+            <tr>
+                <th scope="row"># of Licenses/Users</th>
+                <td>{{ $account->subscription_quantity }}</td>
             </tr>
             <tr>
                 <th scope="row">Payment method</th>

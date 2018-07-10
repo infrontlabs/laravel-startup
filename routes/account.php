@@ -17,8 +17,6 @@ Route::get('/accounts/{account}', 'Account\AccountRedirectController')->name('ac
 Route::get('/account/password', 'Account\PasswordController@index')->name('account.password');
 Route::post('/account/password', 'Account\PasswordController@store')->name('account.password.store');
 
-Route::get('/account/email/resend', 'Auth\EmailConfirmationController@resend')->name('account.email.resend');
-
 Route::get('/account/user/invites', 'Account\UserInvitesController@index')->name('account.user.invites');
 Route::get('/account/user/invites/accept/{teamInvite}', 'Account\UserInvitesController@accept')->name('account.user.invites.accept');
 
@@ -48,6 +46,7 @@ Route::group(['middleware' => 'subscription.active'], function () {
     Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
     Route::post('/account/team', 'Account\TeamController@invite')->name('account.team.invite');
     Route::delete('/account/team/{user}', 'Account\TeamController@delete')->name('account.team.delete');
+    Route::post('/account/team/{user}', 'Account\TeamController@edit')->name('account.team.edit');
 });
 
 Route::group(['middleware' => 'subscription.inactive'], function () {

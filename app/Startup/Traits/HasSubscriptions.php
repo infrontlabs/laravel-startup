@@ -42,22 +42,32 @@ trait HasSubscriptions
 
     public function currentPlan()
     {
-        return $this->subscription('main')->stripe_plan;
+        return $this->subscription(config('subscription.name'))->stripe_plan;
     }
 
     public function isOnTrial()
     {
-        return $this->subscription('main')->onTrial();
+        return $this->subscription(config('subscription.name'))->onTrial();
     }
 
     public function trialEndsAt()
     {
-        return $this->subscription('main')->trial_ends_at;
+        return $this->subscription(config('subscription.name'))->trial_ends_at;
     }
 
     public function cancelSubscription()
     {
-        return $this->subscription('main')->cancel();
+        return $this->subscription(config('subscription.name'))->cancel();
+    }
+
+    public function updateQuantity($qty)
+    {
+        return $this->subscription(config('subscription.name'))->updateQuantity($qty);
+    }
+
+    public function getSubscriptionQuantityAttribute()
+    {
+        return $this->subscription(config('subscription.name'))->quantity;
 
     }
 }

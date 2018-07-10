@@ -25,11 +25,9 @@ class ConfirmationTokenTest extends TestCase
     }
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @test
      */
-    public function testUserCanGenerateConfirmationToken()
+    public function user_can_generate_email_confirmation_token()
     {
         $user = factory(User::class)->create([
             'id' => 12345,
@@ -44,11 +42,9 @@ class ConfirmationTokenTest extends TestCase
     }
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @test
      */
-    public function testUserCanGenerateOnlyOneConfirmationToken()
+    public function user_can_only_generate_one_confirmation_token()
     {
         $user = factory(User::class)->create([
             'id' => 12345,

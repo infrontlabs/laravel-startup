@@ -7,6 +7,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('activate/{confirmation_token}', 'Auth\EmailConfirmationController@confirm')->name('auth.email.confirmation');
+Route::get('email/resend', 'Auth\EmailConfirmationController@resend')->name('auth.email.resend');
 
 /* STRIPE WEBHOOKS */
 Route::post(
