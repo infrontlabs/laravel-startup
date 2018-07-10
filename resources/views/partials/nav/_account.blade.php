@@ -10,7 +10,7 @@
         </li>
         <li class="nav-item">
             @component('components.routenav', ['route' => 'account.password'])
-                Chnage password
+                Change password
             @endcomponent
         </li>
     </ul>
