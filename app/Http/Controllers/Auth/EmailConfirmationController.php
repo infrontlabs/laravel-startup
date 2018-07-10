@@ -12,11 +12,15 @@ class EmailConfirmationController extends Controller
 {
     public function confirm(Request $request, $token)
     {
-        $token->user->confirmEmail();
-
         Auth::loginUsingId($token->user->id);
 
-        return redirect()->route('account.index')->withSuccess('Email has been confirmed!');
+        if ($token->hasExpired()) {
+            return redirect()->route('account.index')->withError(__('auth.email_confirmation_error'));
+        }
+
+        $token->user->confirmEmail();
+
+        return redirect()->route('account.index')->withSuccess(__('auth.email_confirmation_success'));
 
     }
 

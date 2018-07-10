@@ -7,14 +7,11 @@ use Startup\Models\ConfirmationToken;
 trait HasConfirmationTokens
 {
 
-    protected $tokenLength = 255;
-    protected $tokenExpiryMinutes = 60;
-
     public function createConfirmationToken()
     {
         $this->confirmationToken()->create([
-            'token' => $token = str_random($this->tokenLength),
-            'expires_at' => $this->freshTimestamp()->addMinutes($this->tokenExpiryMinutes),
+            'token' => $token = str_random(config('auth.confirmation_token.length')),
+            'expires_at' => $this->freshTimestamp()->addMinutes(config('auth.confirmation_token.expiry')),
         ]);
 
         return $token;
