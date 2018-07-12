@@ -22,6 +22,7 @@
 
                 @if(session('error'))
                 <div class="alert alert-danger" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i>
                     {!! session('error') !!}
                 </div>
                 @endif

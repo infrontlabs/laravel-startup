@@ -14,6 +14,11 @@ input::placeholder {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.btn {
+    padding: 0.575rem 1.5rem;
+    font-weight: 700;
+}
+
 .navbar-startup {
     padding: 0;
     line-height: 35px;
@@ -28,12 +33,14 @@ input::placeholder {
     }
 
     .nav-item.show {
-        background-color: $secondary;
+        background-color: theme-color("secondary");
     }
 }
 
 .card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border: 0;
+    border-top: solid 6px theme-color("primary");
 }
 
 .card-header {
@@ -49,7 +56,7 @@ input::placeholder {
 }
 
 .dropdown-menu {
-    background-color: $secondary;
+    background-color: theme-color("secondary");
     border: 0;
     color: white;
 
@@ -58,11 +65,20 @@ input::placeholder {
     }
 
     a:hover {
-        background-color: darken($secondary, 5%);
+        background-color: darken(theme-color("secondary"), 5%);
         color: white;
     }
 }
 
 .btn-primary {
     color: white;
+}
+
+.alert {
+    border-width: 0;
+}
+
+.alert-danger {
+    background-color: rgba(theme-color("danger"), 0.125);
+    color: darken(theme-color("danger"), 20%);
 }
