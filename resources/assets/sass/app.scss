@@ -15,8 +15,11 @@ input::placeholder {
 }
 
 .btn {
-    padding: 0.575rem 1.5rem;
     font-weight: 700;
+}
+
+.btn-link {
+    border: 0;
 }
 
 .navbar-startup {
@@ -43,16 +46,13 @@ input::placeholder {
     border-top: solid 6px theme-color("primary");
 }
 
-.card-header {
-    margin-bottom: 0;
-    background-color: #fff;
-    border-bottom: 0 solid rgba(55, 63, 67, 0.125);
-    font-weight: 600;
-}
-
 .card .card-header {
     padding: 1rem 1.25rem;
-    border-bottom: solid 1px #eee;
+    background: 0;
+    border: 0;
+    margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: 600;
 }
 
 .dropdown-menu {

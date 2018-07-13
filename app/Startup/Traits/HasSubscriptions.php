@@ -14,6 +14,11 @@ trait HasSubscriptions
         return !$this->isSubscribed();
     }
 
+    public function isNotOnGenericTrial()
+    {
+        return !$this->onGenericTrial();
+    }
+
     public function isCancelled()
     {
         return optional($this->subscription('main'))->cancelled();
@@ -31,10 +36,10 @@ trait HasSubscriptions
 
     public function createSubscription($plan, $stripeToken)
     {
+
         return $this->newSubscription(
             config('subscription.name'), $plan
         )
-            ->trialDays(config('subscription.trial_days'))
             ->create($stripeToken, [
                 'email' => auth()->user()->email,
             ]);
@@ -53,6 +58,14 @@ trait HasSubscriptions
     public function trialEndsAt()
     {
         return $this->subscription(config('subscription.name'))->trial_ends_at;
+    }
+
+    public function genericTrialHasEnded()
+    {
+        if ($this->trial_ends_at === null) {
+            return false;
+        }
+        return $this->freshTimestamp()->gt($this->trial_ends_at);
     }
 
     public function cancelSubscription()

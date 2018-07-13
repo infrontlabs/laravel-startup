@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-startup">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <strong><span>LaravelStartup</span></strong>
+                <img src="/img/logo.svg" alt="" width="200">
             </a>
             @if($account && !link_is_active('app'))
                 <a href="{{ route('app.dashboard') }}" class="badge badge-pill p-2" style="background-color: #6c757d; color: white;">Back to Dashboard</a>
@@ -40,7 +40,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <span style="font-size: 1.7em;" class="align-middle"><i class="fa fa-user"></i></span>
+                                <span class="align-middle mr-1 ml-1"><i class="fa fa-user"></i></span>
                                 <span>
                                 {{ auth::user()->full_name }}
                                 </span>

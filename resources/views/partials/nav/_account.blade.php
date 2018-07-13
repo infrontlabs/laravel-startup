@@ -13,6 +13,11 @@
                 Change password
             @endcomponent
         </li>
+        <li class="nav-item">
+            @component('components.routenav', ['route' => 'account.user.invites'])
+                Invites
+            @endcomponent
+        </li>
     </ul>
 
     <h3 class="nav-heading">Account</h3>
@@ -27,17 +32,14 @@
                 Manage Users
             @endcomponent
         </li>
-        <li class="nav-item">
-            @component('components.routenav', ['route' => 'account.user.invites'])
-                Invites
-            @endcomponent
-        </li>
     </ul>
 
     <h3 class="nav-heading">Subscription</h3>
     <ul class="nav flex-column nav-pills mb-4">
 
     @subscribed
+
+
             @subscriptionnotcancelled
             <li class="nav-item">
                 @component('components.routenav', ['route' => 'account.subscription.details'])

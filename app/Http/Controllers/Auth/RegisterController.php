@@ -77,6 +77,7 @@ class RegisterController extends Controller
 
         $account = $user->createAccount([
             'name' => $user->full_name,
+            'trial_ends_at' => now()->addDays(10),
         ]);
 
         $user->setCurrentAccount($account);

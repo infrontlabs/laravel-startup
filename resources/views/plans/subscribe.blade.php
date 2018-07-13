@@ -5,6 +5,8 @@
 <div class="container">
       <div class="mx-auto w-75">
 
+        @include('partials.flash')
+
     @component('components.card')
         @slot('title')
             Subscription
@@ -17,7 +19,7 @@
             <div class="form-group">
                 <label for="card-element">Select a Plan</label>
                 <ul class="list-group">
-                    @foreach($plans as $plan)
+                    @foreach($paidPlans as $plan)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="plan" id="plan_{{$plan['stripe_id']}}" value="{{$plan['stripe_id']}}"

@@ -19,7 +19,7 @@ class CreateAccountUserTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('account_id')->unsigned()->index();
 
-            $table->string('role')->default('owner');
+            $table->string('role')->default('manager');
 
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateAccountUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('org_user');
+        Schema::dropIfExists('account_user');
     }
 }

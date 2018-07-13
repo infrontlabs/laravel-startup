@@ -42,6 +42,14 @@ class BladeServiceProvider extends ServiceProvider
             return request()->account()->isOnTrial();
         });
 
+        Blade::if('ongenerictrial', function () {
+            return request()->account()->onGenericTrial();
+        });
+
+        Blade::if('generictrialhasended', function () {
+            return request()->account()->genericTrialHasEnded();
+        });
+
     }
 
     /**

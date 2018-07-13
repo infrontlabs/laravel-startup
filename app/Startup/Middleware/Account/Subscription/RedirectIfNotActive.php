@@ -16,7 +16,7 @@ class RedirectIfNotActive
     public function handle($request, Closure $next)
     {
 
-        if ($request->account()->isCancelled() || $request->account()->isNotSubscribed()) {
+        if ($request->account()->isCancelled() || ($request->account()->isNotSubscribed() && $request->account()->isNotOnGenericTrial())) {
             return redirect()->route('plans.index')->withWarning('Please choose a plan to continue');
         }
 

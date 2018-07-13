@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-4 box-shadow border-0">
+            <div class="card mb-4 box-shadow">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">

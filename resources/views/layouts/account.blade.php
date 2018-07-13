@@ -10,22 +10,21 @@
             </div>
             <div class="col-9">
 
-                @if(session('success'))
-                <div class="alert alert-success" role="alert">
-                    {!! session('success') !!}
+                @include('partials.flash')
 
-                    @if (session('emailChanged'))
-                        <div><strong>{!! session('emailChanged') !!}</strong></div>
-                    @endif
-                </div>
-                @endif
-
-                @if(session('error'))
-                <div class="alert alert-danger" role="alert">
+                @ongenerictrial
+                <div class="alert alert-warning" role="alert">
                     <i class="fa fa-exclamation-triangle"></i>
-                    {!! session('error') !!}
+                    Your free trial will end {{$account->trial_ends_at->toFormattedDateString()}}
                 </div>
-                @endif
+                @endongenerictrial
+
+                @generictrialhasended
+                <div class="alert alert-warning" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    Your free trial has ended. <a href="{{ route('plans.index') }}">Choose a plan</a>
+                </div>
+                @endgenerictrialhasended
 
                 @yield('content')
             </div>

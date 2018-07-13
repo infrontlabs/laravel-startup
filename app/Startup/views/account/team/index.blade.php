@@ -21,9 +21,6 @@
                     <td>{{ $account->owner->email }}</td>
                     <td>Owner</td>
                     <td>
-                        Yes
-                    </td>
-                    <td>
                         &nbsp;
                     </td>
                 </tr>
@@ -36,7 +33,7 @@
                         @if($canmanageteams)
 
 
-                            <button type="button" class="btn btn-dark btn-sm shadow-sm" data-toggle="modal" data-target="#editModal">Edit</button>
+                            <button type="button" class="btn text-dark btn-sm btn-link" data-toggle="modal" data-target="#editModal">Edit</button>
 
                             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="edituserlabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -52,7 +49,7 @@
                                 <div class="modal-body">
                                     @foreach (config('team.roles') as $k => $role)
                                             <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" value="{{$k}}" id="role_{{$k}}"
+                                            <input class="form-check-input" name="role" type="radio" value="{{$k}}" id="role_{{$k}}"
                                             @if($user->pivot->role == $k)
                                             checked
                                             @endif
@@ -99,7 +96,7 @@
                             </div>
                             </div>
 
-                                <button type="button" class="btn btn-dark btn-sm shadow-sm" data-toggle="modal" data-target="#deleteModal">Remove</button>
+                                <button type="button" class="btn text-danger btn-sm btn-link" data-toggle="modal" data-target="#deleteModal">Remove</button>
 
                         @endif
                     </td>

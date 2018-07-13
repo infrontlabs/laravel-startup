@@ -14,8 +14,8 @@
     <style>
         html,
         body {
-            background-color: #3AA5A9;
-            color: #333;
+            background-color: #fff;
+            color: #000;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             height: 100vh;
@@ -23,22 +23,23 @@
         }
 
         .full-height {
-            background: url(/img/backgrounds/josh-calabrese-112481-unsplash.jpg) no-repeat center center fixed;
+            background: url(/img/backgrounds/josh-calabrese-112481-unsplash3.jpg) no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
         }
 
         .full-height footer {
-            color: #56d4d9;
+            color: #333;
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 60px;
+            height: 120px;
             text-align: center;
         }
 
         .full-height footer a {
-            color: #a0d7d9;
+            color: #5481DB;
+            font-weight: 600;
         }
 
         .flex-center {
@@ -65,8 +66,11 @@
             font-size: 84px;
         }
 
+        a {
+            color: #5481DB;
+        }
         .links>a {
-            color: #636b6f;
+            color: #5481DB;
             padding: 0 25px;
             font-size: 12px;
             font-weight: 600;
@@ -102,29 +106,33 @@
             </div>
         @endif
             <div class="title">
-                <span style="color:#000;">Laravel</span><span style="color:#FFF;">StartUp</span>
+                <img src="/img/logo-dark.svg" alt="" width="500">
             </div>
             <p>A Laravel based multi-tenent platform for your next SaaS.</p>
 
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-lg btn-block btn-outline-secondary"
+                    <a class="btn btn-lg btn-block btn-outline-primary"
                         href="https://github.com/infrontlabs/infront-startup">
                         <i class="fab fa-github"></i>
                         Download</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-lg btn-block btn-secondary" href="/account">Demo</a>
+                    <a class="btn btn-lg btn-block btn-primary" href="/account">Demo</a>
                 </div>
             </div>
 
 
         </div>
         <footer>
-            Photo by
+            <p>Background Photo by
             <a href="https://unsplash.com/photos/Ca8r0PSWg9Q?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">
                 Josh Calabrese
-            </a> on <a href="https://unsplash.com/search/photos/business?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>
+            </a> on <a href="https://unsplash.com/search/photos/business?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a></p>
+            <p>Rocket logo by
+            <a href="https://fontawesome.com/license" target="_blank">
+                FontAwesome
+            </a></p>
         </footer>
     </div>
 </body>

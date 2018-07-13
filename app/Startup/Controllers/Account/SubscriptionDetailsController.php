@@ -10,14 +10,14 @@ class SubscriptionDetailsController extends Controller
     public function index()
     {
         $account = request()->account();
+
+        if ($account->onGenericTrial()) {
+            return redirect()->route('account.index')->withInfo('Your free trial ends...');
+        }
+
         $subscription = $account->subscription('main');
         $stripe = $subscription->asStripeSubscription();
 
-        // $invoices = $account->upcomingInvoice();
-
-        // dd($invoices);
-
-        // dd($stripe);
         $nextBillDate = Carbon::createFromTimeStamp($stripe->current_period_end)->toFormattedDateString();
         $details = [
             'subscription' => $subscription,
@@ -25,6 +25,7 @@ class SubscriptionDetailsController extends Controller
             'nextBillDate' => $nextBillDate,
             'paymentMethod' => $account->card_brand . " ending in " . $account->card_last_four,
         ];
+
         return view('startup::account.subscription.details', compact('details'));
     }
 }
