@@ -130,6 +130,10 @@
                 </div>
             </div>
 
+            <div class="mt-5 mb-3">
+                <a href="/plans"><strong>Try the demo!</strong></a>
+            </div>
+
         </div>
         <footer>
             <p>Background Photo by
