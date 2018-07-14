@@ -1,4 +1,4 @@
-# InFront Startup
+# LaravelStartup
 
 A Laravel based multi-tenent platform for your next SaaS.
 
@@ -37,3 +37,5 @@ When lando finishes, you will have the following services:
 - Mailhog
   - http://mail.startup.lndo.site
   - https://mail.startup.lndo.site
+
+[Full documentation](https://startup.infrontlabs.com)
