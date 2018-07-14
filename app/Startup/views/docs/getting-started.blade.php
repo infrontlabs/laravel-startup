@@ -11,7 +11,7 @@ to get started quickly, in our opinion. Go <a href="https://docs.devwithlando.io
 </p>
 
 <p>
-    There really isn't a lot to do to get started. Just clone the repo and spin up a environment of your choice - Docker, Lando, Homestead, etc.
+    There really isn't a lot to do to get started. Just clone the repo and spin up an environment of your choice - Docker, Lando, Homestead, etc.
     Make sure you copy the provided <code>.env.example</code> to <code>.env</code>.
 </p>
 
@@ -19,7 +19,7 @@ to get started quickly, in our opinion. Go <a href="https://docs.devwithlando.io
 
 <p>
     If you are using Lando, the project includes a `.lando.yml` file that configures your
-    enviroment for you. It creates the webserver (nginx), database (mysql), and mail server (mailhog).
+    environment for you. It creates the webserver (nginx), database (mysql), and mail server (mailhog).
 </p>
 
 <p>
