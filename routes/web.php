@@ -22,5 +22,5 @@ Route::group(['prefix' => 'docs'], function () {
 /* STRIPE WEBHOOKS */
 Route::post(
     'stripe/webhook',
-    '\App\Http\Controllers\Account\StripeWebhookController@handleWebhook'
+    '\Startup\Controllers\Account\StripeWebhookController@handleWebhook'
 );
