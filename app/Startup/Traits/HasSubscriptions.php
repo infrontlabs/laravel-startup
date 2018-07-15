@@ -83,4 +83,10 @@ trait HasSubscriptions
         return $this->subscription(config('subscription.name'))->quantity;
 
     }
+
+    public function startGenericTrial()
+    {
+        $this->trial_ends_at = now()->addDays(10);
+        $this->save();
+    }
 }

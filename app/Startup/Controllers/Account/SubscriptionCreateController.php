@@ -27,6 +27,6 @@ class SubscriptionCreateController extends Controller
             return back()->withError($e->getMessage());
         }
 
-        return redirect()->route('account.subscription.details')->withSuccess('Your subscription has started!');
+        return redirect()->route('account.subscription.index')->withSuccess('Your subscription has started!');
     }
 }

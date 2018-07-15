@@ -1,70 +1,100 @@
-@extends('layouts.base')
+@extends('layouts.account')
 
-@section('base.content')
-<div class="container">
-
-    <a href="{{ route('account.index') }}">Back</a>
+@section('content')
 
     @component('components.card')
         @slot('title')
-            Switch Accounts
+            My Team Accounts
         @endslot
 
-                <div class="form-group">
-                    <ul class="list-group">
-                        @foreach($ownedAccounts as $a)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{$a->name}} ({{$a->id}}) - Account owner {{$a->owner->full_name}}
-                                @if($a->isSubscribed())
-                                - Subscribed to {{plan($a->currentPlan())}}
-                                @endif
+        <table class="table table-borderless">
+            <tr>
+                <th>Account Name</th>
+                <th>Owner</th>
+                <th>Subscription</th>
+                <th>Active</th>
+                <th>&nbsp;</th>
+            </tr>
+            @foreach($ownedAccounts as $a)
+                <tr>
+                    <td>{{$a->name}}</td>
+                    <td>{{$a->owner->full_name}}</td>
+                    <td>
+                        @if($a->isSubscribed())
+                            {{plan($a->currentPlan())}}
+                        @endif
 
-                                @if($account->id === $a->id)
-                                    <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
-                                @else
-                                    <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
-                                @endif
-                            </li>
-                        @endforeach
-                        @foreach($accounts as $a)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{$a->name}} ({{$a->id}}) - Account owner {{$a->owner->full_name}}
-                                @if($a->isSubscribed())
-                                - Subscribed to {{plan($a->currentPlan())}}
-                                @endif
+                        @if($a->onGenericTrial())
+                            Free Trial until {{$a->trial_ends_at->toFormattedDateString()}}
+                        @endif
 
-                                @if($account->id === $a->id)
-                                    <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
-                                @else
-                                    <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Choose</a>
-                                @endif
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+                        @if($a->isNotOnGenericTrial() && $a->isNotSubscribed())
+                            <span class="text-muted">None</span>
+                        @endif
 
+                        @if($a->isCancelled())
+                            <span class="text-danger">Cancelled</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($account->id === $a->id)
+                            <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
+                        @else
+                            <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Activate</a>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+            @foreach($accounts as $a)
+                <tr>
+                    <td>{{$a->name}}</td>
+                    <td>{{$a->owner->full_name}}</td>
+                    <td>
+                        @if($a->isSubscribed())
+                            {{plan($a->currentPlan())}}
+                        @endif
+
+                        @if($a->onGenericTrial())
+                            Free Trial
+                        @endif
+
+                        @if($a->isNotOnGenericTrial() && $a->isNotSubscribed())
+                            <span class="text-muted">None</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($account->id === $a->id)
+                            <i class="fa fa-check" style="font-size: 1.5em; color: green;"></i>
+                        @else
+                            <a href="{{ route('accounts.switch', $a) }}" class="btn btn-primary btn-sm">Activate</a>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        </table>
 
     @endcomponent
 
     @component('components.card')
         @slot('title')
-            Create another account
+            Create another team account
         @endslot
         <form action="{{ route('accounts') }}" method="post">
                 {{ csrf_field() }}
 
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="account_name" placeholder="Big Enterprises, Inc." aria-label="Account name" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="submit" id="button-addon2">Create team</button>
+                        </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Account name" name="account_name" id="oew_Account">
-                    <div class="text-danger">
+                </div>
+                <div class="text-danger">
                         {{ $errors->first('account_name') }}
                     </div>
-                </div>
-
-                <button type="submit" class="btn btn-dark">Create</button>
 
         </form>
     @endcomponent
 
-</div>
+
 @endsection

@@ -16,6 +16,6 @@ class SubscriptionResumeController extends Controller
     {
         $request->account()->subscription('main')->resume();
 
-        return redirect()->route('account.subscription.details')->withSuccess('Your subscription has been resumed.');
+        return redirect()->route('account.subscription.index')->withSuccess('Your subscription has been resumed.');
     }
 }

@@ -1,21 +1,7 @@
-@extends('layouts.account')
-
-@section('content')
-    @component('components.card')
-        @slot('title')
-            Current payment method
-        @endslot
-
-        @foreach ($cards as $card)
-                {{$card->name}}<br>{{$card->brand}} ending in {{$card->last4}}
-        @endforeach
-
-
-    @endcomponent
 
     @component('components.card')
         @slot('title')
-            Add a new card
+            Update Credit Card <span class="text-muted">Card on file ********{{$account->card_last_four}}</span>
         @endslot
 
         <form id="payment-form" action="{{ route('account.subscription.card.store') }}" method="post">
@@ -41,7 +27,6 @@
                 <button type="submit" class="btn btn-dark">Update card</button>
             </form>
     @endcomponent
-@endsection
 
 @section('scripts')
 

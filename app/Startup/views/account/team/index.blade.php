@@ -6,6 +6,8 @@
             Team Members
         @endslot
 
+        @if($account->members->count())
+
         <table class="table table-borderless mb-0">
             <thead>
                 <tr>
@@ -16,15 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{{ $account->owner->full_name }}</td>
-                    <td>{{ $account->owner->email }}</td>
-                    <td>Owner</td>
-                    <td>
-                        &nbsp;
-                    </td>
-                </tr>
-                @foreach($members as $user)
+                @foreach($account->members as $user)
                 <tr>
                     <td>{{ $user->full_name }}</td>
                     <td>{{ $user->email }}</td>
@@ -104,6 +98,13 @@
                 @endforeach
             </tbody>
         </table>
+
+        @else
+
+            No members on your team
+
+        @endif
+
     @endcomponent
 
     @component('components.card')

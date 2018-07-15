@@ -7,7 +7,7 @@ return [
         [
             'stripe_id' => null,
             'slug' => 'pro-monthly-free',
-            'name' => 'Try for Free',
+            'name' => 'Pro Free Trial',
             'price' => '$0.00',
             'interval' => 'Monthly',
             'active' => true,
@@ -22,7 +22,7 @@ return [
         [
             'stripe_id' => 'pro_monthly',
             'slug' => 'pro-monthly',
-            'name' => 'Monthly',
+            'name' => 'Pro Monthly',
             'price' => '$9.00',
             'interval' => 'Monthly',
             'active' => true,
@@ -37,7 +37,7 @@ return [
         [
             'stripe_id' => 'pro_yearly',
             'slug' => 'pro-yearly',
-            'name' => 'Yearly',
+            'name' => 'Pro Yearly',
             'price' => '$89.00',
             'interval' => 'Yearly',
             'active' => true,

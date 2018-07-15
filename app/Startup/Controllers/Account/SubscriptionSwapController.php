@@ -21,6 +21,6 @@ class SubscriptionSwapController extends Controller
     {
         $request->account()->subscription('main')->swap($request->get('plan'));
 
-        return redirect()->route('account.subscription.details')->withSuccess('Your subscription has been updated');
+        return redirect()->route('account.subscription.index')->withSuccess('Your subscription has been updated');
     }
 }

@@ -24,6 +24,6 @@ class ManageAccountsController extends Controller
         ]);
         $request->user()->setCurrentAccount($account);
 
-        return redirect()->route('account.index')->withSuccess('Account created!');
+        return redirect()->route('plans.index')->withSuccess('Team account created! Please select a plan.');
     }
 }

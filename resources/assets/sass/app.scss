@@ -8,6 +8,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "text";
 
+$menu: lighten(theme-color("dark"), 6%);
+
 input::placeholder {
     color: #aab7c4 !important;
     -webkit-font-smoothing: antialiased;
@@ -29,6 +31,8 @@ input::placeholder {
     .dropdown-menu {
         border-radius: 0;
         margin: 0;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
     }
 
     .dropdown-item {
@@ -36,7 +40,7 @@ input::placeholder {
     }
 
     .nav-item.show {
-        background-color: theme-color("secondary");
+        background-color: $menu;
     }
 }
 
@@ -56,7 +60,7 @@ input::placeholder {
 }
 
 .dropdown-menu {
-    background-color: theme-color("secondary");
+    background-color: $menu;
     border: 0;
     color: white;
 
@@ -65,7 +69,7 @@ input::placeholder {
     }
 
     a:hover {
-        background-color: darken(theme-color("secondary"), 5%);
+        background-color: darken($menu, 5%);
         color: white;
     }
 }

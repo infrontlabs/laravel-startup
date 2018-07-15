@@ -13,9 +13,7 @@ class TeamController extends Controller
 {
     public function index(Request $request)
     {
-        $members = $request->account()->members;
-
-        return view('startup::account.team.index', compact('members'));
+        return view('startup::account.team.index');
     }
 
     public function invite(TeamInviteRequest $request)

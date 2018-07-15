@@ -28,7 +28,12 @@ class PlansController extends Controller
             return redirect()->route('plans.index');
         }
 
-        if ($selectedPlan['is_free_trial'] && request()->account()->onGenericTrial()) {
+        if ($selectedPlan['is_free_trial'] && (request()->account()->onGenericTrial() || request()->account()->genericTrialHasEnded())) {
+            return redirect()->route('account.index');
+        }
+
+        if ($selectedPlan['is_free_trial'] && request()->account()->isNotOnGenericTrial()) {
+            request()->account()->startGenericTrial();
             return redirect()->route('account.index');
         }
 

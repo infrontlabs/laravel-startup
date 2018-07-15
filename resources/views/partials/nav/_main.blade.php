@@ -4,8 +4,20 @@
                 <img src="/img/logo.svg" alt="" width="200">
             </a>
             @if($account && !link_is_active('app'))
-                <a href="{{ route('app.dashboard') }}" class="badge badge-pill p-2" style="background-color: #6c757d; color: white;">Back to Dashboard</a>
+                <a href="{{ route('app.dashboard') }}" class="btn btn-outline-light btn-sm">
+                    <i class="fa fa-arrow-alt-circle-left"></i>
+                    Team {{ $account->name }} Dashboard
+                </a>
             @endif
+
+            @if($account && link_is_active('app'))
+                <ul class="navbar-nav navbar-left">
+                    <li class="nav-item">
+                        <strong><span class="navbar-text">Team {{ $account->name }}</span></strong>
+                    </li>
+                </ul>
+            @endif
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

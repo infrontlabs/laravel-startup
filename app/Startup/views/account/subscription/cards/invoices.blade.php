@@ -1,6 +1,3 @@
-@extends('layouts.account')
-
-@section('content')
     @component('components.card')
         @slot('title')
             Invoices
@@ -17,4 +14,3 @@
         </table>
 
     @endcomponent
-@endsection

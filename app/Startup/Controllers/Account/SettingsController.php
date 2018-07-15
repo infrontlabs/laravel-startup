@@ -3,8 +3,8 @@
 namespace Startup\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Account\CreateAccountRequest;
 use Illuminate\Http\Request;
+use Startup\Requests\Account\CreateAccountRequest;
 
 class SettingsController extends Controller
 {

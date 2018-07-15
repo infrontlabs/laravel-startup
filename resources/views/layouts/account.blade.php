@@ -2,6 +2,11 @@
 
 @section('base.content')
     <div class="container">
+        @if(session('welcome'))
+                <div class="p-0 mb-3" role="alert">
+                    <h4 class="m-0 p-0">{!! session('welcome') !!}</h4>
+                </div>
+                @endif
         <div class="row">
             <div class="col-3">
 
@@ -11,13 +16,6 @@
             <div class="col-9">
 
                 @include('partials.flash')
-
-                @ongenerictrial
-                <div class="alert alert-warning" role="alert">
-                    <i class="fa fa-exclamation-triangle"></i>
-                    Your free trial will end {{$account->trial_ends_at->toFormattedDateString()}}
-                </div>
-                @endongenerictrial
 
                 @generictrialhasended
                 <div class="alert alert-warning" role="alert">

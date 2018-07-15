@@ -10477,6 +10477,8 @@ input::placeholder {
 .navbar-startup .dropdown-menu {
   border-radius: 0;
   margin: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .navbar-startup .dropdown-item {
@@ -10484,7 +10486,7 @@ input::placeholder {
 }
 
 .navbar-startup .nav-item.show {
-  background-color: #6c757d;
+  background-color: #36404f;
 }
 
 .card {
@@ -10504,7 +10506,7 @@ input::placeholder {
 }
 
 .dropdown-menu {
-  background-color: #6c757d;
+  background-color: #36404f;
   border: 0;
   color: white;
 }
@@ -10514,7 +10516,7 @@ input::placeholder {
 }
 
 .dropdown-menu a:hover {
-  background-color: #60686f;
+  background-color: #2c3340;
   color: white;
 }
 

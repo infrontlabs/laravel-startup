@@ -10,7 +10,7 @@
             @csrf
 
 
-            <button type="submit" class="btn btn-success">Resume my subscription</button>
+            <button type="submit" class="btn btn-primary">Resume my subscription</button>
         </form>
 
     @endcomponent

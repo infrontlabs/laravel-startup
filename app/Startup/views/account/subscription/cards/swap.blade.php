@@ -1,6 +1,3 @@
-@extends('layouts.account')
-
-@section('content')
     @component('components.card')
         @slot('title')
             Change Plan
@@ -36,4 +33,3 @@
             </form>
 
     @endcomponent
-@endsection

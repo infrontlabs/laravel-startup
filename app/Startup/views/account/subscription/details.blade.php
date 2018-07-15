@@ -11,33 +11,37 @@
 
     @component('components.card')
         @slot('title')
-            Subscription Details
+            Update your plan
         @endslot
 
-        <table class="table table-borderless mb-0">
-        <tbody>
-            <tr>
-                <th scope="row" width="250">Plan</th>
-                <td>{{$details['plan']->nickname}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Next bill date</th>
-                <td>{{$details['nextBillDate']}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Plan price</th>
-                <td>${{$details['plan']->amount/100}} per license/user</td>
-            </tr>
-            <tr>
-                <th scope="row"># of Licenses/Users</th>
-                <td>{{ $account->subscription_quantity }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Payment method</th>
-                <td>{{$details['paymentMethod']}}</td>
-            </tr>
-        </tbody>
-        </table>
+        <form action="{{ route('account.subscription.swap.store') }}" method="post" id="payment-form">
+                <input type="hidden" name="stripe_token" id="stripe_token" />
+                {{ csrf_field() }}
+
+                <div class="form-group">
+                    <ul class="list-group">
+                        @foreach($plans as $plan)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="plan" id="plan_{{$plan['stripe_id']}}" value="{{$plan['stripe_id']}}"
+                                        @if($plan['stripe_id'] == $currentPlan)
+                                        checked
+                                        @endif
+                                        >
+                                    <label class="form-check-label" for="plan_{{$plan['stripe_id']}}">&nbsp;{{$plan['name']}}</label>
+                                    &nbsp;
+                                </div>
+                                <span>{{$plan['price']}}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+
+                <button class="btn btn-dark">Update</button>
+
+
+            </form>
 
     @endcomponent
 @endsection

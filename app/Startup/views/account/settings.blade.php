@@ -3,14 +3,13 @@
 @section('content')
     @component('components.card')
         @slot('title')
-            Account Settings
+            Team Name
         @endslot
 
         <form action="{{ route('account.settings') }}" method="post">
             @csrf
 
             <div class="form-group">
-                <label>Account Name</label>
                 <input type="text" class="form-control" name="account_name" value="{{$account->name}}">
             </div>
 
@@ -20,5 +19,16 @@
 
 
     @endcomponent
+
+
+    @component('components.card')
+        @slot('title')
+            Team Owner
+        @endslot
+
+        {{$account->owner->full_name}} &lt;{{$account->owner->email}}&gt;
+
+    @endcomponent
+
 
 @endsection

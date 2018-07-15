@@ -2,11 +2,7 @@
 
 @section('base.content')
 <div class="container">
-    @if(session('warning'))
-    <div class="alert alert-warning" role="alert">
-        {!! session('warning') !!}
-    </div>
-    @endif
+    @include('partials.flash')
       <div class="card-deck mb-3 text-center">
 
 

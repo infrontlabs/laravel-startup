@@ -35,6 +35,7 @@ Route::group(['middleware' => 'subscription.cancelled'], function () {
 });
 
 Route::group(['middleware' => 'subscription.customer'], function () {
+    Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.index');
     Route::get('/account/subscription/card', 'Account\SubscriptionCardController@index')->name('account.subscription.card');
     Route::post('/account/subscription/card', 'Account\SubscriptionCardController@store')->name('account.subscription.card.store');
     Route::get('/account/subscription/invoices', 'Account\SubscriptionInvoicesController@index')->name('account.subscription.invoices');
@@ -42,7 +43,6 @@ Route::group(['middleware' => 'subscription.customer'], function () {
 });
 
 Route::group(['middleware' => 'subscription.active'], function () {
-    Route::get('/account/subscription', 'Account\SubscriptionDetailsController@index')->name('account.subscription.details');
     Route::get('/account/team', 'Account\TeamController@index')->name('account.team');
     Route::post('/account/team', 'Account\TeamController@invite')->name('account.team.invite');
     Route::delete('/account/team/{user}', 'Account\TeamController@delete')->name('account.team.delete');

@@ -20,7 +20,8 @@
         </li>
     </ul>
 
-    <h3 class="nav-heading">Account</h3>
+    <h3 class="nav-heading">
+        Team {{ $account->name }}</h3>
     <ul class="nav flex-column nav-pills mb-4">
         <li class="nav-item">
             @component('components.routenav', ['route' => 'account.settings'])
@@ -32,21 +33,22 @@
                 Manage Users
             @endcomponent
         </li>
-    </ul>
+        <li class="nav-item">
+            @component('components.routenav', ['route' => 'accounts'])
+                Switch Teams
+            @endcomponent
+        </li>
 
-    <h3 class="nav-heading">Subscription</h3>
-    <ul class="nav flex-column nav-pills mb-4">
 
     @subscribed
 
 
-            @subscriptionnotcancelled
             <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.details'])
-                    Subscription Details
+                @component('components.routenav', ['route' => 'account.subscription.index'])
+                    Subscription
                 @endcomponent
             </li>
-            <li class="nav-item">
+            {{--  <li class="nav-item">
                 @component('components.routenav', ['route' => 'account.subscription.cancel'])
                     Cancel subscription
                 @endcomponent
@@ -76,24 +78,35 @@
                 @component('components.routenav', ['route' => 'account.subscription.invoices'])
                     Invoices
                 @endcomponent
-            </li>
+            </li>  --}}
 
     @endsubscribed
 
-    @notsubscribed
-            <li class="nav-item">
-                @component('components.routenav', ['route' => 'plans.index'])
-                    Choose a plan!
+    @subscriptioncancelled
+        <li class="nav-item">
+                @component('components.routenav', ['route' => 'account.subscription.resume'])
+                    Resume subscription
                 @endcomponent
             </li>
+    @endsubscriptioncancelled
 
-    @endnotsubscribed
+    @if($account->onGenericTrial())
+            <li class="nav-item">
+                @component('components.routenav', ['route' => 'plans.index'])
+                    Upgrade to a paid plan
+                @endcomponent
+            </li>
+    @endif
+
+    @if($account->isNotOnGenericTrial() && $account->isNotSubscribed())
+            <li class="nav-item">
+                @component('components.routenav', ['route' => 'plans.index'])
+                    Choose a plan
+                @endcomponent
+            </li>
+    @endif
+
         </ul>
-
-        <a href="{{ route('accounts') }}">
-                Switch Accounts
-            </a>
-
 
     @emailnotconfirmed
         <hr>
