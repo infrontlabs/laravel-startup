@@ -17,7 +17,7 @@ class RedirectIfSubscriptionActive
     public function handle($request, Closure $next)
     {
         if ($request->user() && $request->account() && $request->account()->isSubscribed()) {
-            return redirect()->route('account.subscription.swap')->withError('You already have a subscription. Do you want to change plans?');
+            return redirect()->route('account.subscription.index')->withError('You already have a subscription. Do you want to change plans?');
         }
 
         return $next($request);

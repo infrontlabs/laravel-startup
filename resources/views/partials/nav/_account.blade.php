@@ -23,14 +23,16 @@
     <h3 class="nav-heading">
         Team {{ $account->name }}</h3>
     <ul class="nav flex-column nav-pills mb-4">
+        @can('admin account')
         <li class="nav-item">
             @component('components.routenav', ['route' => 'account.settings'])
                 Settings
             @endcomponent
         </li>
+        @endcan
         <li class="nav-item">
             @component('components.routenav', ['route' => 'account.team'])
-                Manage Users
+                Team Members
             @endcomponent
         </li>
         <li class="nav-item">
@@ -42,43 +44,13 @@
 
     @subscribed
 
-
+            @can('admin account')
             <li class="nav-item">
                 @component('components.routenav', ['route' => 'account.subscription.index'])
                     Subscription
                 @endcomponent
             </li>
-            {{--  <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.cancel'])
-                    Cancel subscription
-                @endcomponent
-            </li>
-            <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.swap'])
-                    Change plan
-                @endcomponent
-            </li>
-            @endsubscriptionnotcancelled
-
-            @subscriptioncancelled
-            <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.resume'])
-                    Resume subscription
-                @endcomponent
-            </li>
-            @endsubscriptioncancelled
-
-            <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.card'])
-                    Update card
-                @endcomponent
-            </li>
-
-            <li class="nav-item">
-                @component('components.routenav', ['route' => 'account.subscription.invoices'])
-                    Invoices
-                @endcomponent
-            </li>  --}}
+            @endcan
 
     @endsubscribed
 

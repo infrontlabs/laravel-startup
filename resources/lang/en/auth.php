@@ -18,5 +18,6 @@ return [
     'email_confirmation_success' => 'Email has been confirmed! Please login to continue.',
     'email_confirmation_error' => 'There was a problem confirming your email address. Please login to resend confirmation link.',
     'email_app_restriction' => 'For your security, please confirm your email address to enable access to the dashboard.',
+    'not_account_admin' => 'Sorry, this page requires admin access.',
 
 ];

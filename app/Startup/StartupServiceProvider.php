@@ -39,7 +39,7 @@ class StartupServiceProvider extends ServiceProvider
         });
 
         View::composer('startup::account.team.index', function ($view) {
-            $canmanageteams = optional(auth()->user())->can('teams.users.manage');
+            $canmanageteams = optional(auth()->user())->can('admin account');
             $view->with('canmanageteams', $canmanageteams);
         });
 

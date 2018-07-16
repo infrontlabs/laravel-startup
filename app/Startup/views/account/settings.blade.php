@@ -21,14 +21,4 @@
     @endcomponent
 
 
-    @component('components.card')
-        @slot('title')
-            Team Owner
-        @endslot
-
-        {{$account->owner->full_name}} &lt;{{$account->owner->email}}&gt;
-
-    @endcomponent
-
-
 @endsection

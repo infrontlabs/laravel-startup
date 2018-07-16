@@ -8,6 +8,7 @@ class SubscriptionDetailsController extends Controller
 {
     public function index()
     {
+
         // $account = request()->account();
 
         // if ($account->onGenericTrial()) {

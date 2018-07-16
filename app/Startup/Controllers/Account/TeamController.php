@@ -19,19 +19,19 @@ class TeamController extends Controller
     public function invite(TeamInviteRequest $request)
     {
 
-        $this->authorize('teams.users.manage');
+        // $this->authorize('admin account');
 
         $invite = $request->account()->invites()->save(new TeamInvite($request->only(['email', 'role'])));
 
         event(new TeamInviteCreated($invite));
 
-        return redirect()->route('account.team');
+        return redirect()->route('account.team')->withSuccess(__('team.invite_success'));
     }
 
     public function resendInvite(TeamInvite $teamInvite, Request $request)
     {
 
-        $this->authorize('teams.users.manage');
+        // $this->authorize('admin account');
 
         $invite = $request->account()->invites()->save(new TeamInvite([
             'email' => $teamInvite->email,
@@ -47,7 +47,7 @@ class TeamController extends Controller
 
     public function delete(Request $request, User $user)
     {
-        $this->authorize('teams.users.manage');
+        // $this->authorize('admin account');
 
         $request->account()->members()->detach($user->id);
 

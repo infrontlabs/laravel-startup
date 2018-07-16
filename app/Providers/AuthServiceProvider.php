@@ -29,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
         Passport::enableImplicitGrant();
 
-        Gate::define('teams.users.manage', function ($user) {
-            return auth()->user()->currentAccount->owner->id === $user->id;
+        Gate::define('admin account', function ($user) {
+            return request()->account()->isOwner($user) || request()->account()->isAdmin($user);
         });
 
     }

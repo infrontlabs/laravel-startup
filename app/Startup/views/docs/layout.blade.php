@@ -38,12 +38,12 @@
 <body>
     <div>
 
-        @include('partials.nav._docs-main')
+        @include('startup::docs._docs-main')
 
         <main class="py-4">
             <div class="container">
     <div class="row">
-        <div class="col-md-3">@include('partials.nav._docs-left')</div>
+        <div class="col-md-3">@include('startup::docs._docs-left')</div>
         <div class="col-md-9">
             @yield('base.content')
         </div>

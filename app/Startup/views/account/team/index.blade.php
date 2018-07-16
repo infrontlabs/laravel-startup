@@ -4,7 +4,10 @@
     @component('components.card')
         @slot('title')
             Team Members
+            <span class="text-muted"><strong>Team Owner: </strong> <span class="font-weight-normal">{{$account->owner->full_name}} &lt;{{$account->owner->email}}&gt;</span></span>
         @endslot
+
+
 
         @if($account->members->count())
 
@@ -53,7 +56,7 @@
                                                 <small>{{ $role['description'] }}</small>
                                             </label>
                                             </div>
-                                        @endforeach
+                                    @endforeach
 
                                     </div>
                                     <div class="modal-footer">
@@ -106,6 +109,9 @@
         @endif
 
     @endcomponent
+
+
+    @if($canmanageteams)
 
     @component('components.card')
         @slot('title')
@@ -177,4 +183,19 @@
         @endemailconfirmed
 
     @endcomponent
+
+    @endif
+
+    <p>
+        <strong>Roles</strong>
+
+        <ul>
+            @foreach (config('team.roles') as $k => $role)
+            <li>
+                <strong>{{ $role['name'] }}</strong><br>
+                {{ $role['description'] }}
+            </li>
+            @endforeach
+        </ul>
+    </p>
 @endsection

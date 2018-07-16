@@ -26,8 +26,8 @@ class TenentMiddleware
         );
 
         // validate ownership/membership
-        if (!$request->user()->accountIsValid($account)) {
-            $account = $request->user()->firstOwnedAccount();
+        if (!$account || !$request->user()->accountIsValid($account)) {
+            $account = $request->user()->firstOwnedAccount() ?? $request->user()->accounts()->first();
         }
 
         // somehow an account was not created for this user. Highly unlikely but want to be sure it's captured here.

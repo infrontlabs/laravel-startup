@@ -24,7 +24,13 @@ trait HasTeam
 
     public function isMember(User $user)
     {
-        return $this->members()->where('id', $user->id)->first() ? true : false;
+        return $this->members()->where('user_id', $user->id)->first() ? true : false;
+    }
+
+    public function isAdmin(User $user)
+    {
+        return $this->members()->where('user_id', $user->id)
+            ->where('role', 'admin')->first() ? true : false;
     }
 
     public function isOwner(User $user)

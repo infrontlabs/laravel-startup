@@ -4,11 +4,11 @@ return [
     'roles' => [
         'admin' => [
             'name' => 'Administrator',
-            'description' => 'Company owners and administrators for managing company and billing settings.',
+            'description' => 'Administrators can manage company, team, and billing settings.',
         ],
         'manager' => [
             'name' => 'Project Manager',
-            'description' => 'Project managers for creating projects and change orders.',
+            'description' => 'Project managers can create and edit application resources.',
         ],
     ],
 ];

@@ -1,4 +1,4 @@
-@extends('layouts.docs')
+@extends('startup::docs.layout')
 
 @section('base.content')
 <h1>Getting Started</h1>

@@ -71,5 +71,6 @@ class Kernel extends HttpKernel
         'subscription.customer' => \Startup\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
         'subscription.inactive' => \Startup\Middleware\Account\Subscription\RedirectIfSubscriptionActive::class,
         'email.confirmed' => \Startup\Middleware\Account\RedirectIfEmailNotConfirmed::class,
+        'account.admin' => \Startup\Middleware\Account\RedirectIfNotAccountAdmin::class,
     ];
 }
