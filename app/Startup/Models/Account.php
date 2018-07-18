@@ -7,7 +7,7 @@ use Laravel\Cashier\Billable;
 use Startup\Traits\HasSubscriptions;
 use Startup\Traits\HasTeam;
 
-class Account extends Model
+class Account extends Model implements \JsonSerializable
 {
     use Billable, HasSubscriptions, HasTeam;
 
@@ -25,6 +25,19 @@ class Account extends Model
     public function getHashIdAttribute()
     {
         return app('hashid')->encode($this->id); // VolejRejNm
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize ()
+    {
+        return [
+            'id' => $this->hash_id,
+            'name' => $this->name,
+            'card_brand' => $this->card_brand,
+            'card_last_four' => $this->card_last_four,
+        ];
     }
 
 }
