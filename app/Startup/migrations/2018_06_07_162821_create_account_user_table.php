@@ -16,12 +16,16 @@ class CreateAccountUserTable extends Migration
         Schema::create('account_user', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('account_id')->unsigned()->index();
+            $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('account_id')->index();
 
             $table->string('role')->default('manager');
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('account_id')->references('id')->on('accounts');
         });
     }
 

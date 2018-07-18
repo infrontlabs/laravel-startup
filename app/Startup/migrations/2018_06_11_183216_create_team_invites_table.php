@@ -18,9 +18,10 @@ class CreateTeamInvitesTable extends Migration
 
             $table->string('email');
             $table->string('role');
-            $table->unsignedInteger('account_id');
+            $table->unsignedInteger('account_id')->index();
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
         });
     }
 

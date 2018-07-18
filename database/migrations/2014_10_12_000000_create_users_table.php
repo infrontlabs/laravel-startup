@@ -24,7 +24,8 @@ class CreateUsersTable extends Migration
 
             $table->unsignedInteger('current_account_id')->nullable();
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
         });
     }
 
