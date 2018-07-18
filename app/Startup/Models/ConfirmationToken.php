@@ -5,6 +5,12 @@ namespace Startup\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property    int                             $id
+ * @property    int                             $user_id
+ * @property    string                          $token
+ * @property    \Carbon\Carbon                  $expires_at
+ */
 class ConfirmationToken extends Model
 {
     public $timestamps = false;
