@@ -12,7 +12,7 @@
     "doctrine/dbal": "^2.7",
     "fideloper/proxy": "^4.0",
     "hashids/hashids": "^3.0",
-    "infrontlabs/startup": "^0.0.2",
+    "infrontlabs/startup": "^0.0.3",
     "laravel/cashier": "~7.0",
     "laravel/framework": "5.6.*",
     "laravel/passport": "^6.0",
