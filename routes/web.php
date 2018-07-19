@@ -16,11 +16,11 @@ Route::group(['middleware' => ['auth.register', 'subscription.inactive']], funct
 });
 
 Route::group(['prefix' => 'docs'], function () {
-    Route::get('/', '\Startup\Controllers\DocumentationController@index')->name('docs.index');
-    Route::get('/{page}', '\Startup\Controllers\DocumentationController@index')->name('docs.page');
+    Route::get('/', '\Infrontlabs\Startup\Controllers\DocumentationController@index')->name('docs.index');
+    Route::get('/{page}', '\Infrontlabs\Startup\Controllers\DocumentationController@index')->name('docs.page');
 });
 /* STRIPE WEBHOOKS */
 Route::post(
     'stripe/webhook',
-    '\Startup\Controllers\Account\StripeWebhookController@handleWebhook'
+    '\Infrontlabs\Startup\Controllers\Account\StripeWebhookController@handleWebhook'
 );

@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Startup\Models\ConfirmationToken;
+use InfrontLabs\Startup\Models\ConfirmationToken;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -39,8 +39,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        $this->mapAccountRoutes();
-
         $this->mapAppRoutes();
 
         //
@@ -58,13 +56,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web', 'bindings')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
-    }
-
-    protected function mapAccountRoutes()
-    {
-        Route::middleware(['web', 'auth', 'tenent', 'bindings'])
-            ->namespace('Startup\Controllers')
-            ->group(base_path('routes/account.php'));
     }
 
     protected function mapAppRoutes()

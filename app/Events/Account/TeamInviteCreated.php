@@ -2,7 +2,7 @@
 
 namespace App\Events\Account;
 
-use Startup\Models\TeamInvite;
+use InfrontLabs\Startup\Models\TeamInvite;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

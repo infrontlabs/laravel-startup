@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfNotActive;
 
 class Kernel extends HttpKernel
 {
@@ -38,7 +39,7 @@ class Kernel extends HttpKernel
         ],
 
         'tenent' => [
-            \Startup\Middleware\TenentMiddleware::class,
+            \InfrontLabs\Startup\Middleware\TenentMiddleware::class,
         ],
 
         'api' => [
@@ -64,13 +65,13 @@ class Kernel extends HttpKernel
         'auth.register' => \App\Http\Middleware\RedirectToRegistrationIfNotAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'subscription.active' => \Startup\Middleware\Account\Subscription\RedirectIfNotActive::class,
-        'subscription.notcancelled' => \Startup\Middleware\Account\Subscription\RedirectIfCancelled::class,
-        'subscription.cancelled' => \Startup\Middleware\Account\Subscription\RedirectIfNotCancelled::class,
-        'subscription.notcustomer' => \Startup\Middleware\Account\Subscription\RedirectIfCustomer::class,
-        'subscription.customer' => \Startup\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
-        'subscription.inactive' => \Startup\Middleware\Account\Subscription\RedirectIfSubscriptionActive::class,
-        'email.confirmed' => \Startup\Middleware\Account\RedirectIfEmailNotConfirmed::class,
-        'account.admin' => \Startup\Middleware\Account\RedirectIfNotAccountAdmin::class,
+        'subscription.active' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfNotActive::class,
+        'subscription.notcancelled' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfCancelled::class,
+        'subscription.cancelled' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfNotCancelled::class,
+        'subscription.notcustomer' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfCustomer::class,
+        'subscription.customer' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfNotCustomer::class,
+        'subscription.inactive' => \InfrontLabs\Startup\Middleware\Account\Subscription\RedirectIfSubscriptionActive::class,
+        'email.confirmed' => \InfrontLabs\Startup\Middleware\Account\RedirectIfEmailNotConfirmed::class,
+        'account.admin' => \InfrontLabs\Startup\Middleware\Account\RedirectIfNotAccountAdmin::class,
     ];
 }

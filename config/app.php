@@ -163,7 +163,7 @@ return [
         Laravel\Cashier\CashierServiceProvider::class,
         \App\Providers\BladeServiceProvider::class,
 
-        Startup\StartupServiceProvider::class,
+        InfrontLabs\Startup\StartupServiceProvider::class,
 
     ],
 
