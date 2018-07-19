@@ -10,7 +10,7 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="StartupFeature">
-            <directory suffix="Test.php">./packages/infrontlabs/startup/tests/Feature</directory>
+            <directory suffix="Test.php">./vendor/infrontlabs/startup/tests/Feature</directory>
         </testsuite>
         <testsuite name="StartupUnit">
             <directory suffix="Test.php">./app/Startup/tests/Unit</directory>

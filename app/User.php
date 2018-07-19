@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use InfrontLabs\Startup\Traits\HasAccounts;
-use InfrontLabs\Startup\Traits\HasConfirmationTokens;
+use Infrontlabs\Startup\Traits\HasAccounts;
+use Infrontlabs\Startup\Traits\HasConfirmationTokens;
 
 class User extends Authenticatable
 {

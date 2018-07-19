@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use InfrontLabs\Startup\Models\ConfirmationToken;
+use Infrontlabs\Startup\Models\ConfirmationToken;
 
 class RouteServiceProvider extends ServiceProvider
 {
